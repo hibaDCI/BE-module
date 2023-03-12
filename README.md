@@ -5,69 +5,22 @@ This module will provide you with a comperhensive understanding of servers, data
 
 Additionally, you will delve into the crucial topic of security, learning about potential threats and best practices for protecting your systems and data.  
 Finally, you will gain practical skills in deploying your projects to various platforms and environments. By the end of this module, you will have a solid foundation in these critical areas of technology, enabling you to tackle complex challenges with confidence.
+ 
+# Module Content
+| Topics | Subtopics |
+| ------ | --------- |
+| **Introduction** | - The server as a program <br> - Server-client concept <br> - The role of the backend |
+| **Running JS on the OS** | - Node scripts & npm workflow <br> - Host Objects vs. Native Objects <br> - Printing to the Terminal <br> - Getting arguments <br> - Exiting a program <br> - Debugging |
+| **HTTP: a server is a command line program** | - Listening to requests <br> - Working with servers <br> - Creating a (very) simple server <br> - Working on ports <br> - The request response cycle |
+| **Getting data** | - Calling external servers <br> - Working with events <br> - The get shortcut |
+| **Third party modules** | - Overview of node-fetch, request, and axios packages <br> - The joy of axios <br> - Express vs. http.createServer |
+| **Mock** | - Mock database for quick prototyping <br> - Reading and writing to json file <br> - Setting up lowdb |
+| **Controller** | - MVC Concepts <br> - Attaching controllers to our app <br> - REST I <br> - Sending responses <br> - Project Organization I |
+| **Request** | - The request object <br> - Receiving JSON requests <br> - REST II |
+| **Frontend & Backend** | - Requests from the frontend |
+| **Middleware** | - Using middleware <br> - Reviewing used middleware <br> - Reading middleware <br> - Middleware function signature <br> - Project organization II |
+| **Router** | - Organizing common paths <br> - Chaining handlers <br> - Project organization III <br> - REST III |
+| **Handling Errors** | - Error handling middleware signature <br> - Changing response status <br> - Using the error handler <br> - Catching 404s with a default route |
+| **Environment Variables** | - Development vs. Production <br> - Project Organization VI <br> - Centralizing secrets in one place |
+| **Deployment intro** | - Defining production secrets <br> - Using Render |
 
-| <span style="color:#008080"><strong>Module Topics</strong></span> | <span style="color:#008080"><strong>Description</strong></span> |
-| --- | --- |
-| <span style="color:#800080"><strong>Introduction</strong></span> |  |
-| The server as a program |  |
-| Server-client concept |  |
-| The role of the backend |  |
-| <span style="color:#800080"><strong>Running JS on the OS</strong></span> |  |
-| Node scripts & npm workflow |  |
-| Host Objects vs. Native Objects |  |
-| Printing to the Terminal |  |
-| Getting arguments |  |
-| Exiting a program |  |
-| Debugging |  |
-| <span style="color:#800080"><strong>HTTP: a server is a command line program</strong></span> |  |
-| Listening to requests |  |
-| Working with servers |  |
-| Creating a (very) simple server |  |
-| Working on ports |  |
-| The request response cycle |  |
-| <span style="color:#800080"><strong>Getting data</strong></span> |  |
-| Calling external servers |  |
-| Working with events |  |
-| The get shortcut |  |
-| <span style="color:#800080"><strong>Third party modules</strong></span> |  |
-| Overview of node-fetch, request, and axios packages |  |
-| The joy of axios |  |
-| Express vs. http.createServer |  |
-| <span style="color:#800080"><strong>Mock</strong></span> |  |
-| Mock database for quick prototyping |  |
-| Reading and writing to json file |  |
-| Setting up lowdb |  |
-| <span style="color:#800080"><strong>Controller</strong></span> |  |
-| MVC Concepts |  |
-| Attaching controllers to our app |  |
-| REST I |  |
-| Sending responses |  |
-| Project Organization I |  |
-| <span style="color:#800080"><strong>Request</strong></span> |  |
-| The request object |  |
-| Receiving JSON requests |  |
-| REST II |  |
-| <span style="color:#800080"><strong>Frontend & Backend</strong></span> |  |
-| Requests from the frontend |  |
-| <span style="color:#800080"><strong>Middleware</strong></span> |  |
-| A function that executes between a received request, and a sent response |  |
-| Using middleware |  |
-| Reviewing used middleware |  |
-| Reading middleware |  |
-| Middleware function signature |  |
-| Project organization II |  |
-| <span style="color:#800080"><strong>Router</strong></span> |  |
-| Organizing common paths |  |
-| Chaining handlers |  |
-| Project organization III |  |
-| REST III |  |
-| <span style="color:#800080"><strong>Handling Errors</strong></span> |  |
-| Error handling middleware signature |  |
-| Changing response status |  |
-| Using the error handler |  |
-| Catching 404s with a default route |  |
-| <span style="color:#800080"><strong>Environment Variables</strong></span> |  |
-| Development vs. Production |  |
-| Project Organization VI |  |
-| Centralizing secrets in one place |  |
-| <span style="color:#800080"><strong>Deployment intro</strong></span> |  |
