@@ -5,7 +5,7 @@ This module will provide you with a comperhensive understanding of servers, data
 
 Additionally, you will delve into the crucial topic of security, learning about potential threats and best practices for protecting your systems and data.  
 Finally, you will gain practical skills in deploying your projects to various platforms and environments. By the end of this module, you will have a solid foundation in these critical areas of technology, enabling you to tackle complex challenges with confidence.
-*** 
+ 
 
 # Module Topics
 
