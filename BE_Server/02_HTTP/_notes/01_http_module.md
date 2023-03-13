@@ -1,8 +1,4 @@
-# Working with Servers
-
-This readme file provides an overview of how to work with servers in Node.js using the http and https modules.
-
-## Overview of http and https modules
+# HTTP and HTTPS modules
 The ***http*** and ***https*** modules in Node.js are used for creating and interacting with servers that listen to ***HTTP*** and ***HTTPS***  requests respectively.  
 The http module is used for handling HTTP requests while the https module is used for handling HTTPS requests. 
 
@@ -42,3 +38,4 @@ That's it! You now have an overview of how to create a simple HTTP server in Nod
 
 
 
+ -->
