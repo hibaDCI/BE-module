@@ -1,9 +1,9 @@
 # Third party modules
 There are several packages available in Node.js to make HTTP requests. Three popular packages are `node-fetch`, `request`, and `axios`.
-
 ### node-fetch
 `node-fetch` is a minimalistic package for making HTTP requests. It supports both HTTP and HTTPS protocols and provides a Promise-based API.
 
+<!--
 ```javascript
 const fetch = require('node-fetch');
 

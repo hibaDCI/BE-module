@@ -2,7 +2,6 @@
 The ***http*** and ***https*** modules in Node.js are used for creating and interacting with servers that listen to ***HTTP*** and ***HTTPS***  requests respectively.  
 
 ## Creating a (very) simple server: `http.createServer(<callback>)`  
-
 - This method is used to create an HTTP server. 
 - __The callback function is called each time a request is made to the server__. 
 - Inside the callback function, we can define how to handle the request and what response to send back. 
@@ -35,4 +34,5 @@ When a request is made to an HTTP server, the callback function is called with t
 
   In the example above, we used `res.write('Hello, World!')` to write ***"Hello, World!"*** to the response stream, and `res.end()` to end the response.
 
+  <!--
  -->

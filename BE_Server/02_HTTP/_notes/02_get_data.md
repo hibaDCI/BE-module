@@ -1,5 +1,4 @@
 # Working with External Servers in Node.js
-
 Node.js provides a built-in http module that allows developers to make HTTP requests to external servers. This can be useful for accessing APIs or fetching data from other websites.
 
 ### Making GET Requests with `http.request()`
@@ -92,5 +91,6 @@ If you just need to make a simple GET request and don't need as much control ove
   ```
 
 This code does the same thing as the previous examples, but uses `http.get()` to make the request. The `on('error')` method is called if an error occurs during the request. 
+<!--
 
 -->
