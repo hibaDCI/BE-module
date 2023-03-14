@@ -40,7 +40,7 @@ axios.get('https://jsonplaceholder.typicode.com/posts')
 ```
 
 ### The joy of axios
-axios provides a simple and easy-to-use API for making HTTP requests. It also supports interceptors, which allows you to modify requests and responses before they are sent or received.
+axios provides a simple and easy-to-use API for making HTTP requests. It also supports `interceptors`, which allows you to modify requests and responses before they are sent or received.
 
 ```javascript
 axios.interceptors.request.use(config => {
