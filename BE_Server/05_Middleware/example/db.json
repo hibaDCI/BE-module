@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "name": "Ather",
+      "lname": "Sheholli",
+      "type": "admin",
+      "email": "ather@mail.com",
+      "pass": "ather123",
+      "id": 1
+    },
+    {
+      "name": "Fahim",
+      "lname": "Ahmadi",
+      "type": "guest",
+      "email": "fahim@mail.com",
+      "pass": "mypass",
+      "id": 2
+    },
+    {
+      "name": "Daniel",
+      "lname": "Ahmadi",
+      "email": "dani@mail.com",
+      "pass": "123",
+      "type": "admin",
+      "id": 3
+    }
+  ]
+}
