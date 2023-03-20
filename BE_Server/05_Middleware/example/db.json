@@ -23,6 +23,11 @@
       "pass": "123",
       "type": "admin",
       "id": 3
+    },
+    {
+      "name": "john",
+      "lname": "doe",
+      "id": 4
     }
   ]
 }
