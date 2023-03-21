@@ -28,8 +28,27 @@ export const addNewProduct = async (req, res) => {
 /* ---------------------------------------------------------------- */
 /*                          update product                          */
 /* ---------------------------------------------------------------- */
+// Todo: write the body of this controller to update product with given pid
 export const updateProduct = async (req, res) => {
-    res.send()
+    const productId = parseInt(req.params.pid);
+
+    if (isNaN(productId)) {
+        return res.status(400).json({ message: 'Invalid productId in URL. 🙀' });
+    }
+
+    let productIndex = db.data.products.findIndex(p => p.id === productId);
+    db.data.products[productIndex] = {
+      ...db.data.products[productIndex],
+      ...req.body,
+    };
+    
+    await db.write()
+    res
+      .status(200)
+      .send({
+        message: "updated successfull!😀",
+        product: db.data.products[productIndex]
+      });
 }
 
 
