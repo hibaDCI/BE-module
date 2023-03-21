@@ -5,8 +5,8 @@ import {db} from '../server.js'
 /* ---------------------------------------------------------------- */
 export const register = async (req, res, next) => {
 
-    let newUser = { ...req.body, id: db.data.users.slice(-1)[0]?.id || 1 }
-    if (!newUser) {
+    let newUser = { ...req.body, id: db.data.users.slice(-1)[0]?.id+1 || 1 }
+    if (!newUser.username || !newUser.password) {
         return res.status(400).json({message: 'there is no new user in req.body 😕'})
     }
 
@@ -38,11 +38,14 @@ export const login = async (req, res, next) => {
 
 
     const foundUser = db.data.users.find(u => u.username === username && u.password === password);
-    delete foundUser.password;
+    //console.log(foundUser);
+
     //if no user exist with given credentials
     if (!foundUser) {
         return res.status(401).json({ message: 'Invalid username or password 😠' });
     }
+    
+    delete foundUser.password;
     //if username and password are matched
     res.status(200).json({ message: 'Login successful! 😃', user: foundUser });
 }

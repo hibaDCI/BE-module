@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { Low, JSONFile } from 'lowdb';
 import userRouter from './routers/users.router.js';
+import { productRouter } from './routers/products.router.js';
 
 
 
@@ -25,13 +26,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('tiny'));
 //using routers
 app.use('/users', userRouter);
+app.use('/products', productRouter);
 
 
 
 
-/** PRODUCT ROUTES */
-//get All Products
-//add New Product
 
 
 
