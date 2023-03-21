@@ -86,7 +86,7 @@ You can then use the auth middleware function in your application like this:
 
 ```js
 import express from 'express';
-import {autho} from './middleware/auth.js';
+import {auth} from './middleware/auth.js';
 
 const app = express();
 app.use(auth);

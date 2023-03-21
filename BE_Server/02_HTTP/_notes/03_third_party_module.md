@@ -3,7 +3,7 @@ There are several packages available in Node.js to make HTTP requests. Three pop
 ### node-fetch
 `node-fetch` is a minimalistic package for making HTTP requests. It supports both HTTP and HTTPS protocols and provides a Promise-based API.
 
-<!--
+
 ```javascript
 const fetch = require('node-fetch');
 

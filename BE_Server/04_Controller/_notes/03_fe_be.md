@@ -15,6 +15,7 @@ Next, let's create a simple __API endpoint__ that returns a list of users:
 ```javascript
 const express = require('express')
 const app = express()
+app.use(express.json())
 
 const users = [
   { id: 1, name: 'Alice' },
@@ -23,6 +24,12 @@ const users = [
 ]
 
 app.get('/api/users', (req, res) => {
+  res.json(users)
+})
+
+app.post('/api/users', (req, res)=>{
+  const newUser = {id: users.length+1, name: req.body.name}
+  users.push(newUser);
   res.json(users)
 })
 

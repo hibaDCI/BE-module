@@ -1,5 +1,6 @@
 # Error Handling Middleware Signature
 ---
+<!-- 
 - In an Express.js application, error handling middleware is used to ***catch errors that occur during the request-response cycle***. The error handling middleware function has the following signature:
 
     ```javascript
@@ -93,3 +94,4 @@ app.get('/example', (req, res, next) => {
 });
 ```
 In this example, an error is created by using the createError with a custom HTTP status code of 400 and a message of 'Bad Request'.
+ -->

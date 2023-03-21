@@ -1,27 +1,27 @@
-
 ## MVC (Model-View-Controller)
-MVC, or Model-View-Controller, is a popular architectural pattern used in software development. It divides an application into three interconnected components:  
-
-![MVC Architecture](./mvc.png)
+***MVC, or Model-View-Controller, is a popular architectural pattern used in software development.***  
+It divides an application into three interconnected components:  
 
 - ***Model***: The model represents the data of the application.
 - ***View***: The view is responsible for rendering the user interface of the application.
-- ***Controller***: The controller acts as an intermediary between the model and view, handling user input and updating the model and/or view as necessary.
+- ***Controller***: The controller acts as an intermediary between the model and view, handling user input and updating the model and/or view as necessary.  
+  
+![MVC Architecture](./mvc.png)
 
 ## Benefits of MVC
 There are several benefits to using MVC in software development:
 
 - __Separation of Concerns__:  
-  By separating an application into distinct components, each component can focus on its own specific concerns without interfering with the others. This makes the application easier to develop, test, and maintain.  
+  By separating an application into distinct components, each component can __focus on its own specific concerns__ without interfering with the others. This makes the application easier to develop, test, and maintain.  
   
 - __Modularity__:  
-  Because the components of an MVC application are decoupled, they can be developed and tested independently, making it easier to scale and modify the application over time.  
+  Because the components of an MVC application are decoupled, they can be __developed and tested independently__, making it easier to scale and modify the application over time.  
   
 - __Reusability__:  
   The separation of concerns and modularity also make it easier to reuse code across multiple applications or components.  
 
 - __Improved Collaboration__:  
-  Because each component has its own specific responsibilities, it is easier for developers and designers to work together on different parts of the application without stepping on each other's toes.  
+  Because each component has its own specific responsibilities, it is __easier for developers and designers to work together__ on different parts of the application without stepping on each other's toes.  
   
 Overall, the MVC architecture is a powerful tool for building complex applications that are both modular and maintainable.
 
@@ -57,7 +57,8 @@ RESTful APIs typically use the following HTTP methods to interact with resources
 
 - __GET:__ Used for reading data from a resource.  
 - __POST:__ Used for creating a new resource.  
-- __PUT:__ Used for updating an existing resource.  
+- __PUT:__ Used for updating an existing resource.
+- __PATCH:__ Used for updating an existing resource partially.  
 - __DELETE:__ Used for deleting a resource.  
 
 In the context of a RESTful API, the HTTP GET method is typically used for reading data from the server. For example, a __GET__ request to `/users` might **return a list of all users** in the database.
@@ -81,3 +82,6 @@ res.json({ message: 'Hello, world!' })
 As your Express app grows in complexity, it's a good idea to organize your code into separate files and directories.  
 
 One common pattern is to ***create a controllers directory*** to hold all of your controller functions. For example, you might have a file called `UserController.js` that exports functions for handling user-related requests.
+
+<!-- 01
+ -->

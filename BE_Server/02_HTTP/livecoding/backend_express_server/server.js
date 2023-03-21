@@ -1,11 +1,11 @@
 import express from 'express';
 
-//create a server
+//1.create a server
 const app = express()
 app.use(express.json())
 
-//route 
 
+//3. define routes 
 //GET http://localhost:5000/    path: /
 app.get('/', (req, res) => {
     //send back res
@@ -27,10 +27,15 @@ app.post('/login', (req, res) => {
     } else {
         res.send("Username or password not matched!")
     }
+})
+ 
+//for the rest of paths
+app.get('*', (req, res) => { 
+    res.status(404).send('404: This route is not defined!')
  })
 
 
 
-//define the port number for the server
+//2.define the port number for the server
 const port = 5000;
 app.listen(port, () => { console.log('Server is up on port:', port); })
