@@ -1,0 +1,19 @@
+{
+  "products": [],
+  "users": [
+    {
+      "fullname": "Fahim Ahmadi",
+      "username": "shades",
+      "password": "secret123",
+      "email": "fahim@mail.com",
+      "id": 1
+    },
+    {
+      "fullname": "Ernesto Mederos",
+      "username": "Geeks",
+      "password": "pass123",
+      "email": "ernesto@mail.com",
+      "id": 1
+    }
+  ]
+}
