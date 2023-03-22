@@ -13,6 +13,11 @@
       "fullname": "Fahim Ahmadi",
       "email": "fahim@mail.com",
       "id": 2
+    },
+    {
+      "username": "testUser",
+      "password": "pass123",
+      "id": 3
     }
   ]
 }

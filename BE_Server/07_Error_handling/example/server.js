@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { Low, JSONFile } from 'lowdb';
 import { userRouter } from './routers/users.router.js';
+import { mainErrorHandler, noRouteHandler } from './middlewares/errorHandler.middleware.js';
 
 
 //create app
@@ -22,13 +23,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan('tiny'));
 
+//http://localhost:5000/users GET
 
 //routers
 app.use('/users', userRouter);
 
 
 //error handler undefined routes
+app.use(noRouteHandler);
 //main error handler
+app.use(mainErrorHandler);
 
 
 
