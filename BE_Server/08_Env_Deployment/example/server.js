@@ -1,12 +1,16 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
+import dotenv from 'dotenv';
 import { Low } from 'lowdb';
 import { JSONFile } from "lowdb/node";
 import { userRouter } from './routers/users.router.js';
 import { mainErrorHandler, noRouteHandler } from './middlewares/errorHandler.middleware.js';
-import { env } from './config/environment.js';
-// import dotenv from 'dotenv';
+
+//setup environment vairables
+process.NODE_ENV === 'production'
+    ? dotenv.config({ path: './config/production.env' })
+    : dotenv.config({path: './config/development.env'})
 
 //create app
 const app = express();
@@ -37,10 +41,8 @@ app.use(noRouteHandler);
 //main error handler
 app.use(mainErrorHandler);
 
+console.log('email', process.env.EMAIL, 'dbPassword', process.env.PASS);
 
-const dbPassword = env.db_pass;
-const email = env.email;
-console.log('email',email, 'dbPassword',dbPassword);
 //port
-const port = env.port;
+const port = process.env.PORT;
 app.listen(port, console.log(`server is up on port: ${port}. 👻`));
