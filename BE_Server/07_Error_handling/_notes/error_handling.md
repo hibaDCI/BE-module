@@ -1,6 +1,5 @@
 # Error Handling Middleware Signature
 ---
-<!-- 
 - In an Express.js application, error handling middleware is used to ***catch errors that occur during the request-response cycle***. The error handling middleware function has the following signature:
 
     ```javascript
@@ -49,7 +48,7 @@ In Express.js, you can catch 404 errors using a default route that matches all r
 
 ```javascript
 app.use((req, res, next) => {
-    const err = new Error('Not Found');
+  const err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
@@ -78,6 +77,7 @@ app.get('/example', (req, res, next) => {
   next(createError(404, 'Not Found'));
 });
 ```
+  <!-- 
 
 - In the example above, a `404 error` with the message `'Not Found'` is created and passed to the __next function__, which passes control to the next middleware function with the error object.
 
