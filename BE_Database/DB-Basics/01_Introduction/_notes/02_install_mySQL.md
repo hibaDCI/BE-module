@@ -17,17 +17,30 @@ sudo apt install mysql-server
 ```
 This will install the MySQL server package and all its dependencies.
 
-## Step 3: Secure MySQL
+## Step 3: Connect to mysql-server as an administrator
+```shell
+sudo mysql
+```
+
+## Step 4: Set Password to Root user
+Switch the authentication method to `native_password`.  
+Note that the command ends with `your_root_password_here`. Don't just copy and past it into your terminal.
+```shell
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_root_password_here';
+exit
+```
+
+## Step 5: Secure MySQL
 After the installation is complete, run the following command to secure MySQL:
 
 ```bash
 sudo mysql_secure_installation
 ```
 This will prompt you to 
-- Set the MySQL root password, 
-- Remove anonymous users, 
-- Disallow remote root login, and 
-- Remove test databases. 
+- Set the MySQL root password (dont change the password), 
+- Remove anonymous users (no), 
+- Disallow remote root login (yes), 
+- Remove test databases (no)
  
 Follow the prompts to complete the security configuration.
 
@@ -36,11 +49,6 @@ Finally, start the MySQL service using the following command:
 
 ```bash
 sudo systemctl start mysql
-```
-You can also enable the MySQL service to start automatically at boot time with the following command:
-
-```bash
-sudo systemctl enable mysql
 ```
 
 
