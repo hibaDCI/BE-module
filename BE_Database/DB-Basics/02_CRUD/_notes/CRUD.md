@@ -6,7 +6,6 @@
 - The four primary data `operations of CRUD`, including creating, retrieving, updating, and deleting data
 - Using GUIs for databases, such as `Compass for MongoDB` and `Workbench` for MySQL
 ---
-<!-- 
 
 ## Row / Document: Shell examples
 
@@ -27,10 +26,17 @@ Here's an example:
 
 ```js
 db.customers.insertOne({
-  "name": "John Smith",
-  "email": "john.smith@example.com",
-  "phone": "123-456-7890"
+    name: "John Smith",
+    email: "john.smith@example.com",
+    phone: "123-456-7890"
 })
+
+//insert multi documnet
+db.customers.insertMany([
+    {name: "John Doe", email: "john@mail.com", phone:"123-456-3423"},
+    {name: "Jane Doe", email: "jane@mail.com", phone:"123-456-34233}
+    ])
+
 ```
 
 <br>
@@ -39,7 +45,11 @@ db.customers.insertOne({
 
 To insert a row in MySQL, you can use the INSERT INTO statement. 
 ```sql
+/* insert single record */
 INSERT INTO <table_name> VALUES (<values>);
+/* insert multi record */
+INSERT INTO <table_name> VALUES (<values>), (<values>), (<values>);
+
 ```
 
 Here's an example:  
@@ -71,7 +81,9 @@ INSERT INTO customers (name, email, phone) VALUES ('John Smith', 'john.smith@exa
     Here's an example:  
 
     ```js
-    db.customers.find({});
+    db.customers.find({
+        price: {$lt: 500}
+    });
     ```
 
 ### Showing all rows of a table: 
@@ -79,7 +91,7 @@ INSERT INTO customers (name, email, phone) VALUES ('John Smith', 'john.smith@exa
 - To retrieve all rows in a MySQL table, you can use the SELECT statement with the * wildcard. 
   
     ```sql
-    SELECT * from <table name>;
+    SELECT * FROM <table name> WHERE <conditions>;
     ```
 
     Here's an example:
@@ -206,8 +218,8 @@ To connect to a MongoDB database using Compass, follow these steps:
 1. Open Compass and click on "New Connection".  
 2. Enter the connection details, including the `hostname`, `port`, and `database name`. (e.g  mongodb://localhost:27017/dbname)
 Optionally, you can specify authentication details and SSL options.
-3. Click on "Connect".
-4. Once connected, Compass will display a list of the databases in your MongoDB server, and you can select the one you want to work with.
+1. Click on "Connect".
+2. Once connected, Compass will display a list of the databases in your MongoDB server, and you can select the one you want to work with.
 
 ### Features of Compass
 Compass provides several features to manage and visualize your MongoDB data, including:
@@ -235,4 +247,5 @@ Overall, Compass is a powerful tool that makes it easy to manage your MongoDB da
 
 
 
+<!-- 
  -->

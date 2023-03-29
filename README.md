@@ -38,8 +38,11 @@ Finally, you will gain practical skills in deploying your projects to various pl
 | 6 | 21.03.2023 | Routers + PUT/DELETE methods                | [Click Here!](https://us02web.zoom.us/rec/share/oIrs3nX3XxaZ2Bi8b6mCaY59HJN57s1T1ju3QXZva6ctBqmatA0wWtj6AKg6ETAw.sn-Z43RfkAIj9dJf) | 82kdaU$=  |
 | 7 | 22.03.2023 | Error Handling                              | [Click Here!](https://us02web.zoom.us/rec/share/5DQmhK3T29APhlbTKho3c23zyTLpMM3jFNjjvdUFa7PtKUc80sxy-rJ7sPrcMrPS.r_j-KjAannP7LdAD) | Z3!sLm@4  |
 | 8 | 23.03.2023 | Environment Variables + Deployment          | [Click Here!](https://us02web.zoom.us/rec/share/8QICsTwkm5fH6iY7aYhf8AHGTW78HaHjVzRPKpog6Z1X5npZR1AVlx9qWDr_SxyG.VRom5w-CVJs1qDJ_) | +Y&0kKq3  |
-| 9 | 24.03.2023 | Introduction to Database          | [Click Here!](https://us02web.zoom.us/rec/share/TA7Ft3S1WPSB9nrMZ7-J4e467i4IZ-idzpsOJ6L3uo7PMO08Bm9rZw7_tAZqKnEF.T9mQ3jsuk2qK9NFa) | +E!rm4$q  |
+| 9 | 27.03.2023 | Introduction to Database          | [Click Here!](https://us02web.zoom.us/rec/share/TA7Ft3S1WPSB9nrMZ7-J4e467i4IZ-idzpsOJ6L3uo7PMO08Bm9rZw7_tAZqKnEF.T9mQ3jsuk2qK9NFa) | +E!rm4$q  |
+| 10 | 28.03.2023 | Database CRUD          | [Click Here!](https://us02web.zoom.us/rec/share/FDQHu0Q_kQiTr4Zbh0d3D-yp8JQOGmtGa8mqqjiqfEQjp4RZmGu0asFsymjKJ0Cl.5ASv7T7qOzbM8nWA) | 4c8Wg#A!  |
+| 11 | 29.03.2023 | Database CRUD + ORM+ODM + Mongoose  | [Click Here!](https://us02web.zoom.us/rec/share/-mx21L-KB15N4f0KiBleFH4XTc0IvXzwV0rWwxsUQOBofFXceacHgXsQKKiflzra.I7uwQ_XUaPx1xFF1) | %6#1zEWH  |
 
 
 
 ## Database I Content
+
