@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         minLength: 8,
         required: true
-    }
+    },
 
 });
 

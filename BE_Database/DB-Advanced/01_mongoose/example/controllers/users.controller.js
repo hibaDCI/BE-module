@@ -20,28 +20,29 @@ export const addNewUser = async (req, res, next) => {
     const { firstname, lastname, email, password } = req.body;
 
     if (req.validationErrors.length) {
-      return res
-        .status(400)
+      return res.status(400)
         .json({ message: "validation Errors", errors: req.validationErrors });
     }
 
-    //create new user
-    //1. create instance from model and pass data to it
+    /**
+     * create new user first approach
+     * 1. create instance from User model
+     * 2. call save() method for that instance
+     */
+      
     //   const newUser = new User({ firstname, lastname, email, password });
-    //2. call save method for the instance
     //   newUser.save();
 
-    //alternative
-    //add newUser to db
+    /**
+     * create new user second approach
+     * call Model.create() and pass doucment to it.
+     */
     const newUser = await User.create({ firstname, lastname, email, password });
 
     //remove password
     delete newUser.password;
 
-    res.status(200).json({
-      message: "add user successful!",
-      newUser,
-    });
+    res.status(200).json({ message: "add user successful!", newUser});
   } catch (error) {
     next(error);
   }
