@@ -11,7 +11,7 @@ userRouter.route('/')
     .get(getAllUsers)
     .post(validateUser, addNewUser);
 
-userRouter.route('/:uid')
-    .get(getUserById)
-    .put(updateUser)
-    .delete(deleteUser);
+// userRouter.route('/:uid')
+    // .get(getUserById)
+    // .put(updateUser)
+    // .delete(deleteUser);

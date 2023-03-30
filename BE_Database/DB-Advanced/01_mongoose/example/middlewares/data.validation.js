@@ -2,33 +2,18 @@ import createError from "http-errors";
 
 //validate user data
 export const validateUser = async (req, res, next) => {
-  const { fullname, username, password, email } = req.body;
+  const { firstname, lastname, password, email } = req.body;
   const validationErrors = [];
 
   //check required fields
-  if (!fullname || !username || !password || !email) {
+  if (!firstname || !lastname || !password || !email) {
     return next(createError(400, "Required fields are missed. 🚨"));
   }
 
 
-  //validate fullname
-  const fullname_regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-  if (!fullname_regex.test(fullname)) {
-    validationErrors.push({
-      pattern: "fullname",
-      message: "Please use a valid fullname. e.g John Doe",
-    });
-  }
 
-  //validate username
-  const username_regex = /^[a-zA-Z0-9_]{3,20}$/;
-  if (!username_regex.test(username)) {
-    validationErrors.push({
-      pattern: "username",
-      message:
-        "Please provide a username with 3-20 chars. (including letters and numbers)",
-    });
-  }
+
+
 
   //validate password
   const password_regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;

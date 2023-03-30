@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-// import { userRouter } from './routers/user.router.js';
+import { userRouter } from './routers/user.router.js';
 // import { todoRouter } from './routers/todos.router.js';
 import { genericErrHandler, noRoute } from './middlewares/err.handler.js';
 import { connectToDB } from './utils/db.js';
@@ -30,7 +30,7 @@ app.use(morgan('tiny'));
 
 
 //apply routers
-// app.use('/users', userRouter);
+app.use('/users', userRouter);
 // app.use('/todos', todoRouter);
 
 
