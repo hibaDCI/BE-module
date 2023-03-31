@@ -1,11 +1,12 @@
-# BE-module  
-The Backend module trains the participants to use common Database technologies and Node frameworks to create a transactional RESTful API service for storing and serving JSON data.  
 
-This module will provide you with a comperhensive understanding of servers, databases, security and deployment. You will explore the inner workings of servers, as well as gain insights into database management, such as data storage, retrieval, and manipulation.  
+# BE-module
+The Backend module trains the participants to use common Database technologies and Node frameworks to create a transactional RESTful API service for storing and serving JSON data.
 
-Additionally, you will delve into the crucial topic of security, learning about potential threats and best practices for protecting your systems and data.  
+This module will provide you with a comperhensive understanding of servers, databases, security and deployment. You will explore the inner workings of servers, as well as gain insights into database management, such as data storage, retrieval, and manipulation.
+
+Additionally, you will delve into the crucial topic of security, learning about potential threats and best practices for protecting your systems and data.
 Finally, you will gain practical skills in deploying your projects to various platforms and environments. By the end of this module, you will have a solid foundation in these critical areas of technology, enabling you to tackle complex challenges with confidence.
- 
+
 # Module Content
 ## Backend Server
 | Topics | Subtopics |
@@ -41,8 +42,9 @@ Finally, you will gain practical skills in deploying your projects to various pl
 | 9 | 27.03.2023 | Introduction to Database          | [Click Here!](https://us02web.zoom.us/rec/share/TA7Ft3S1WPSB9nrMZ7-J4e467i4IZ-idzpsOJ6L3uo7PMO08Bm9rZw7_tAZqKnEF.T9mQ3jsuk2qK9NFa) | +E!rm4$q  |
 | 10 | 28.03.2023 | Database CRUD          | [Click Here!](https://us02web.zoom.us/rec/share/FDQHu0Q_kQiTr4Zbh0d3D-yp8JQOGmtGa8mqqjiqfEQjp4RZmGu0asFsymjKJ0Cl.5ASv7T7qOzbM8nWA) | 4c8Wg#A!  |
 | 11 | 29.03.2023 | Database CRUD + ORM+ODM + Mongoose  | [Click Here!](https://us02web.zoom.us/rec/share/-mx21L-KB15N4f0KiBleFH4XTc0IvXzwV0rWwxsUQOBofFXceacHgXsQKKiflzra.I7uwQ_XUaPx1xFF1) | %6#1zEWH  |
+| 12 | 30.03.2023 | Recap on Database CRUD + Mongoose Schema + Mongoose Model  | [Click Here!](https://us02web.zoom.us/rec/share/IABZjxi2EJ92EE5OUn3h04y755ZPUKUUhVjtlE8yUKKgsGk302IdSibaePgTeOyM.5Mllcb-n8dSbpt7Z) | Oic+6&c8  |
 
 
-
+ 
 ## Database I Content
 

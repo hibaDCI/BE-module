@@ -1,5 +1,13 @@
 # Database Advanced
 
+***Today Content***
+  - Mongoose Introduction
+  - Connect to DB
+  - Schema and Model
+  - CRUD
+  - Seeding Script
+
+
 ## Introduction
 - When working with databases, developers often face the ***challenge of dealing with the complexity of the database layer***. <u>Object-Relational Mapping (ORM)</u> and <u>Object Document Mapping (ODM)</u> are two techniques used to __abstract the database and provide a simpler way to interact with the data__.
 
@@ -43,7 +51,7 @@ Overall, Mongoose simplifies the process of working with MongoDB databases in No
 ### Schema design principles I
 When working with mongoose, it's important to:
 
-<div style="width: 70%; margin:auto; margin-bottom:2rem;color:orange;font-size:1.3rem;">Follow good schema design principles to ensure your data is well-structured and efficient to work with.</div>
+<div style="width: 70%; margin:2rem;font-size:1.3rem;">Follow good schema design principles to ensure your data is well-structured and efficient to work with.</div>
 
 Here are some `key principles` to keep in mind:  
 
@@ -69,6 +77,7 @@ Here are some `key principles` to keep in mind:
   - __Exporting a model__:  
     Use `mongoose.model(<name>, <schema>);` to create a new model for a collection.
 
+<!-- 
   - __Seed scripts__:  
     Seed scripts are scripts that add initial data to your database to provide a Proof Of Concept (POC) for your application.
 
@@ -100,3 +109,4 @@ Here are some useful resources for working with faker:
 [Faker API docs](https://fakerjs.dev/guide/usage.html)
 
 
+ -->
