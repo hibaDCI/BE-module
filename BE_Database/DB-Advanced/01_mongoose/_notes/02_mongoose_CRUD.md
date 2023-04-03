@@ -3,7 +3,7 @@
 <br>
 
 ## Recap on Contents of Last Session
----
+
   - ***Mongoose Introduction***
     1. Popular ODM library
     2. MongoDB offers powerful database interaction.
