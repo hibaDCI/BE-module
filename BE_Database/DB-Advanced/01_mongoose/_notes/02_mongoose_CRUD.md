@@ -182,54 +182,55 @@ When defining a schema, there are several options that can be specified for each
 <br>
 
 - #### Methods and Statics
-  Mongoose allows us to define `methods` and `statics` that can be called on a `model` or `document`. For example, we can define a method that formats a 
-  user's name as ***firstName lastName***:
+  Mongoose allows us to define `methods` and `statics` that can be called on a `document` or `model`. For example, we can define a method that calculate the Age of a single user:
 
   ```js
-  UserSchema.methods.fullName = function() {
-    return this.firstName + ' ' + this.lastName;
+  UserSchema.methods.getAge = function() {
+    let ageInMs = Date.now() - this.birthdate.getTime();
+    let ageInYears = parseInt(ageInMs / 3_600_000 * 24 * 365);
+    return ageInYears;
   };
   ```
-  We can then call this method on a document as follows:
+  then we can call this method on a document as follows:
 
   ```js
   var user = new User({ firstName: 'John', lastName: 'Doe' });
-  user.fullName(); // 'John Doe'
+  user.getAge(); // '3'
   ```
   
-  We can also define statics that can be called on a model. For example, we can define a static that returns all active users:
+  We can also define `statics` that can be `called on a model`. For example, we can define a static that returns all active users:
 
   ```js
   UserSchema.statics.activeUsers = function() {
     return this.find({ status: 'active' });
   };
   ```
-  We can then call this static on the User model as follows:
+  then we can call this `static on the User model` as follows:
 
   ```js
-    User.activeUsers().then(function(users) {
-      console.log(users);
-    });
+    const results = await User.activeUsers();
+    console.log(results);
   ```
 <br>
 
 - #### Virtuals
-  Virtuals are fields that are `not stored in the database` but are calculated based on other fields. For example, we can define a virtual that calculates a user's age based on their date of birth:
+  Virtuals are fields that are `not stored in the database` but are calculated based on other fields. For example, we can define a virtual that concatenate firstname and lastname to generate fullname:
 
   ```js
-  UserSchema.virtual('age').get(function() {
-    var now = new Date();
-    return now.getFullYear() - this.dateOfBirth.getFullYear();
+  UserSchema.virtual('fullname').get(function() {
+    return `${this.lastname}, ${this.firstname}`
   });
   ```
   We can then access this virtual field as follows:
 
   ```js
-  var user = new User({ dateOfBirth: new Date(1980, 0, 1) });
-  console.log(user.age); // 43 (assuming the current year is 2023)
+  var user = new User({ firstname: 'John', lastname: 'Doe' });
+  console.log(user.fullname); // `Doe, John`
   ``` 
 
-  <span style="color:coral;font-size:2rem">Attention:</span>
-  - __Virtuals__: use when you define a vritual property on a <u>single document</u>
-  - __Methods__: use when you need to define a method on a <u>single document</u>
-  - __Statics__: use when you need to run a CRUD operation over entire collection of document ( <u>Model</u> )
+  ### <span style="color:coral;">Attention:</span>
+  - __Virtuals__: use virtuals when you define a vritual property on a <u>single document</u>
+  
+  - __Methods__: use methods when you need to define a method on a <u>single document</u>
+  
+  - __Statics__: use statics when you need to run a CRUD operation over entire collection of document ( <u>Model</u> )
