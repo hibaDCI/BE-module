@@ -1,0 +1,77 @@
+import mongoose from "mongoose";
+
+/**
+ * schema for users
+ *  firstname   => String, Required, Alphabets-Only, min-3 char
+ *  lastname    => String, Required, Alphabets-Only, min-3 char
+ *  birthdate   => Date, Required
+ *  username    => String, Required, Unique Alphabets/Digits/Special, min-5 char
+ *  email       => String, Required, Unique, should be email
+ *  password    => String, Required, Alphabets/Digits/Special, min-8 char
+ *  role        => String, Enum['Admin', 'User']
+ *
+ */
+
+const userSchema = new mongoose.Schema({
+  firstname: {
+    type: String,
+    required: [true, "firstname is required!"],
+    match: [/^[A-Za-z]{3,}$/, "firstname is not valid!"],
+  },
+
+  lastname: {
+    type: String,
+    required: [true, "firstname is required!"],
+    match: [/^[A-Za-z]{3,}$/, "firstname is not valid!"],
+  },
+
+  birthdate: {
+    type: Date,
+    required: [true, "birthdate is required field!"],
+    // separator: "/",
+  },
+
+  username: {
+    type: String,
+    required: [true, "username is required"],
+    unique: [true, "This username already exist"],
+    match: [/^[A-Za-z]+[\w\W]{4,}$/, "username is not valid"],
+  },
+
+  email: {
+    type: String,
+    required: [true, "email is required"],
+    unique: [true, "This email already exist"],
+    match: [
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+      "email is not valid",
+    ],
+  },
+
+  password: {
+    type: String,
+    required: [true, "Password is required!"],
+    match: [/^[\w\W]{8,}$/, "Password is not valid!"],
+  },
+
+  role: {
+    type: String,
+    enum: ["admin", "user"],
+    default: "user",
+  },
+});
+
+/**
+ * 1. Create a virtuals for fullname
+ * 2. Create a custom-method to get the User's age
+ * 3. Create a statics to get the list of Admins
+ */
+
+/** Task1 - Virtual */
+
+/** Task2 - Custom Method */
+
+/** Task3 - Statics*/
+
+//generate model
+export default mongoose.model("User", userSchema);
