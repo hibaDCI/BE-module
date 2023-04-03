@@ -229,8 +229,8 @@ When defining a schema, there are several options that can be specified for each
   ``` 
 
   ### <span style="color:coral;">Attention:</span>
-  - __Virtuals__: use virtuals when you define a vritual property on a <u>single document</u>
+  - __Virtuals__: use virtuals when you define a vritual property on a <u>`single document`</u>
   
-  - __Methods__: use methods when you need to define a method on a <u>single document</u>
+  - __Methods__: use methods when you need to define a method on a <u>`single document`</u>
   
-  - __Statics__: use statics when you need to run a CRUD operation over entire collection of document ( <u>Model</u> )
+  - __Statics__: use statics when you need to run a CRUD operation over entire collection of document ( <u>`Model`</u> )
