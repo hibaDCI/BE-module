@@ -181,7 +181,6 @@ When defining a schema, there are several options that can be specified for each
 
 <br>
 
-<!-- 
 - #### Methods and Statics
   Mongoose allows us to define `methods` and `statics` that can be called on a `model` or `document`. For example, we can define a method that formats a 
   user's name as ***firstName lastName***:
@@ -228,4 +227,9 @@ When defining a schema, there are several options that can be specified for each
   ```js
   var user = new User({ dateOfBirth: new Date(1980, 0, 1) });
   console.log(user.age); // 43 (assuming the current year is 2023)
-  ``` -->
+  ``` 
+
+  <span style="color:coral;font-size:2rem">Attention:</span>
+  - __Virtuals__: use when you define a vritual property on a <u>single document</u>
+  - __Methods__: use when you need to define a method on a <u>single document</u>
+  - __Statics__: use when you need to run a CRUD operation over entire collection of document ( <u>Model</u> )

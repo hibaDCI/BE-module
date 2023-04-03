@@ -37,6 +37,15 @@ export const addNewUser = async (req, res, next) => {
     //3. remove password (for security)- keep password in db
     newUser.password = undefined;
 
+    //using a virtual
+    console.log('fullname:', newUser.fullname);
+
+    //using methods
+    console.log(newUser.getAge());
+
+    //use statics
+    console.log(await User.getAdmins());
+    
     //4. send response
     res.status(200).json({
       message: 'user registered successfully!',

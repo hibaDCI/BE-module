@@ -68,10 +68,23 @@ const userSchema = new mongoose.Schema({
  */
 
 /** Task1 - Virtual */
+userSchema.virtual('fullname').get(function() {
+    return `${this.lastname}, ${this.firstname}`
+})
+
+
 
 /** Task2 - Custom Method */
+userSchema.methods.getAge = function() {
+    let ageInMs = Date.now() - this.birthdate.getTime();
+    let ageInYears = parseInt(ageInMs / (1000 * 60 * 60 * 24 * 365));
+    return ageInYears;
+}
 
 /** Task3 - Statics*/
+userSchema.statics.getAdmins = function() {
+    return this.find({role: 'admin'})
+}
 
 //generate model
 export default mongoose.model("User", userSchema);
