@@ -31,20 +31,18 @@ Finally, you will gain practical skills in deploying your projects to various pl
 ## Recordings
 | # | Date | Topic | Link | Pass      |
 | - | ---- | ----- |----- | --------- |
-| 1 | 13.03.2023 | Introduction to BE-Servers                  | [Click Here!](https://us02web.zoom.us/rec/share/dPGA_IJutci01I3GNKb7jCCaqNVKibIe6eaOMTb1Wt3dNyRwejm7JeTApEUjxzIT.dbZPQ8t_wZy4WHuI) | !9hdYCZ9  |
-| 2 | 14.03.2023 | Create Server and send Request using Nodejs | [Click Here!](https://us02web.zoom.us/rec/share/Kgs3Jm-kwAhslV9KL72H3Nh6BxWTXn94zExd-flcYrLqr8FvCquAIV0siEHHiqlB.RDv4hwfagWVWEaGj) | KNnk3@J%  |
-| 3 | 15.03.2023 | Create Express Server + using Lowdb         | [Click Here!](https://us02web.zoom.us/rec/share/tSGFSkzXxZg0Q82lPhAw-CpzvWKoLWhLa0lFSOIAS6nectfIlu3O6HWXwWKgYsf1.f6x5P4KxtGCTePjI) | $0CkL?Q$  |
-| 4 | 16.03.2023 | Controller + Request + Frontend/Backend     | [Click Here!](https://us02web.zoom.us/rec/share/n1DzxT5zqutfvngx26jNdsbnkU-dgyHklQziJY1augXXfVQ9r9FfuC8PoOkyWkR1.qnZMRwbG8DjR4w0d) | 2+Uqd&IU  |
-| 5 | 20.03.2023 | Middlewares + Recap                         | [Click Here!](https://us02web.zoom.us/rec/share/v5tzTsVnvgSExg8WjhSv5gzZlo3Qnf6NfQiRFi3pwfybHgtZHyfY4zb1qfehPnIX.BhzrcLWd8ZhAfwxl) | \*6Zy28dF |
-| 6 | 21.03.2023 | Routers + PUT/DELETE methods                | [Click Here!](https://us02web.zoom.us/rec/share/oIrs3nX3XxaZ2Bi8b6mCaY59HJN57s1T1ju3QXZva6ctBqmatA0wWtj6AKg6ETAw.sn-Z43RfkAIj9dJf) | 82kdaU$=  |
-| 7 | 22.03.2023 | Error Handling                              | [Click Here!](https://us02web.zoom.us/rec/share/5DQmhK3T29APhlbTKho3c23zyTLpMM3jFNjjvdUFa7PtKUc80sxy-rJ7sPrcMrPS.r_j-KjAannP7LdAD) | Z3!sLm@4  |
-| 8 | 23.03.2023 | Environment Variables + Deployment          | [Click Here!](https://us02web.zoom.us/rec/share/8QICsTwkm5fH6iY7aYhf8AHGTW78HaHjVzRPKpog6Z1X5npZR1AVlx9qWDr_SxyG.VRom5w-CVJs1qDJ_) | +Y&0kKq3  |
-| 9 | 27.03.2023 | Introduction to Database          | [Click Here!](https://us02web.zoom.us/rec/share/TA7Ft3S1WPSB9nrMZ7-J4e467i4IZ-idzpsOJ6L3uo7PMO08Bm9rZw7_tAZqKnEF.T9mQ3jsuk2qK9NFa) | +E!rm4$q  |
-| 10 | 28.03.2023 | Database CRUD          | [Click Here!](https://us02web.zoom.us/rec/share/FDQHu0Q_kQiTr4Zbh0d3D-yp8JQOGmtGa8mqqjiqfEQjp4RZmGu0asFsymjKJ0Cl.5ASv7T7qOzbM8nWA) | 4c8Wg#A!  |
-| 11 | 29.03.2023 | Database CRUD + ORM+ODM + Mongoose  | [Click Here!](https://us02web.zoom.us/rec/share/-mx21L-KB15N4f0KiBleFH4XTc0IvXzwV0rWwxsUQOBofFXceacHgXsQKKiflzra.I7uwQ_XUaPx1xFF1) | %6#1zEWH  |
-| 12 | 30.03.2023 | Recap on Database CRUD + Mongoose Schema + Mongoose Model  | [Click Here!](https://us02web.zoom.us/rec/share/IABZjxi2EJ92EE5OUn3h04y755ZPUKUUhVjtlE8yUKKgsGk302IdSibaePgTeOyM.5Mllcb-n8dSbpt7Z) | Oic+6&c8  |
-
-
- 
-## Database I Content
-
+| 1 | 13.03.2023 | Introduction to BE-Servers                  | [Link](https://us02web.zoom.us/rec/share/dPGA_IJutci01I3GNKb7jCCaqNVKibIe6eaOMTb1Wt3dNyRwejm7JeTApEUjxzIT.dbZPQ8t_wZy4WHuI) | !9hdYCZ9  |
+| 2 | 14.03.2023 | Create Server and send Request using Nodejs | [Link](https://us02web.zoom.us/rec/share/Kgs3Jm-kwAhslV9KL72H3Nh6BxWTXn94zExd-flcYrLqr8FvCquAIV0siEHHiqlB.RDv4hwfagWVWEaGj) | KNnk3@J%  |
+| 3 | 15.03.2023 | Create Express Server + using Lowdb         | [Link](https://us02web.zoom.us/rec/share/tSGFSkzXxZg0Q82lPhAw-CpzvWKoLWhLa0lFSOIAS6nectfIlu3O6HWXwWKgYsf1.f6x5P4KxtGCTePjI) | $0CkL?Q$  |
+| 4 | 16.03.2023 | Controller + Request + Frontend/Backend     | [Link](https://us02web.zoom.us/rec/share/n1DzxT5zqutfvngx26jNdsbnkU-dgyHklQziJY1augXXfVQ9r9FfuC8PoOkyWkR1.qnZMRwbG8DjR4w0d) | 2+Uqd&IU  |
+| 5 | 20.03.2023 | Middlewares + Recap                         | [Link](https://us02web.zoom.us/rec/share/v5tzTsVnvgSExg8WjhSv5gzZlo3Qnf6NfQiRFi3pwfybHgtZHyfY4zb1qfehPnIX.BhzrcLWd8ZhAfwxl) | \*6Zy28dF |
+| 6 | 21.03.2023 | Routers + PUT/DELETE methods                | [Link](https://us02web.zoom.us/rec/share/oIrs3nX3XxaZ2Bi8b6mCaY59HJN57s1T1ju3QXZva6ctBqmatA0wWtj6AKg6ETAw.sn-Z43RfkAIj9dJf) | 82kdaU$=  |
+| 7 | 22.03.2023 | Error Handling                              | [Link](https://us02web.zoom.us/rec/share/5DQmhK3T29APhlbTKho3c23zyTLpMM3jFNjjvdUFa7PtKUc80sxy-rJ7sPrcMrPS.r_j-KjAannP7LdAD) | Z3!sLm@4  |
+| 8 | 23.03.2023 | Environment Variables + Deployment          | [Link](https://us02web.zoom.us/rec/share/8QICsTwkm5fH6iY7aYhf8AHGTW78HaHjVzRPKpog6Z1X5npZR1AVlx9qWDr_SxyG.VRom5w-CVJs1qDJ_) | +Y&0kKq3  |
+| 9 | 27.03.2023 | Introduction to Database          | [Link](https://us02web.zoom.us/rec/share/TA7Ft3S1WPSB9nrMZ7-J4e467i4IZ-idzpsOJ6L3uo7PMO08Bm9rZw7_tAZqKnEF.T9mQ3jsuk2qK9NFa) | +E!rm4$q  |
+| 10 | 28.03.2023 | Database CRUD          | [Link](https://us02web.zoom.us/rec/share/FDQHu0Q_kQiTr4Zbh0d3D-yp8JQOGmtGa8mqqjiqfEQjp4RZmGu0asFsymjKJ0Cl.5ASv7T7qOzbM8nWA) | 4c8Wg#A!  |
+| 11 | 29.03.2023 | Database CRUD + ORM+ODM + Mongoose  | [Link](https://us02web.zoom.us/rec/share/-mx21L-KB15N4f0KiBleFH4XTc0IvXzwV0rWwxsUQOBofFXceacHgXsQKKiflzra.I7uwQ_XUaPx1xFF1) | %6#1zEWH  |
+| 12 | 30.03.2023 | Recap on Database CRUD + Mongoose Schema + Mongoose Model  | [Link](https://us02web.zoom.us/rec/share/IABZjxi2EJ92EE5OUn3h04y755ZPUKUUhVjtlE8yUKKgsGk302IdSibaePgTeOyM.5Mllcb-n8dSbpt7Z) | Oic+6&c8  |
+| 13 | 03.04.2023 | Recap on Model + Mongoose Schema + Schema Options  | [Link](https://us02web.zoom.us/rec/share/rlIuv-OyoehmG1HaenSujP92I9l9bK2EUCYMYL2MM76Hp6VorrgvTVJlzStD_InQ.KuQX_paCMfQ51AY0) | 5#bY@i?0  |
+| 14 | 04.04.2023 | Recap on Mongoose Schema Options + Sub Documents + Seeding | [Link](https://us02web.zoom.us/rec/share/F8h1f1cMax7tgiqMqdWF1f-hsQFiRVunkK6Hgg1mm4dXgoqmmAYe7yCscwesuZ02.rWjmFmcmFXRka61I) | 66H7iH!X  |
+| 15 | 05.04.2023 | Recap on Sub Documents + CRUD Update-Delete  | [Link](https://us02web.zoom.us/rec/share/NEbrJOGUo1IFl1aAfEHTg3J9H9lFMiRhrBUibGKZj-9-Dj-aknXa_KyWEOW124DI.BzRRvo_4OBdphHuN) | M1PCB^cp  |
