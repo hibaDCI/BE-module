@@ -1,9 +1,3 @@
-<style>
-    span{
-        color: coral;
-    }
-</style>
-
 # Update & Delete in Mongoose
 
 Today we will discuss about updating and deleting documents in a MongoDB database using Mongoose, a popular Object Data Modeling (ODM) library for MongoDB.
@@ -24,7 +18,7 @@ await User.findByIdAndUpdate(id, {firstname: "Daniel"});
 <br>
 
 ### 1. Getting back the updated document
-<span>By default, the `findByIdAndUpdate()` method returns the original document before it was updated.</span> However, we can use the `new` update option to get back the updated document instead. 
+<span style="color:coral">By default, the `findByIdAndUpdate()` method returns the original document before it was updated.</span> However, we can use the `new` update option to get back the updated document instead. 
 
 Here's an example:
 
@@ -35,7 +29,7 @@ await User.findByIdAndUpdate(id, {pasword: 'newPass'}, { new: true });
 <br>
 
 ### 2. Ensuring schema validation
-When updating a document, we may want <span>to ensure that the new data we're adding is valid according to our Mongoose schema</span>. We can do this by using the `runValidators` update option. 
+When updating a document, we may want <span style="color:coral">to ensure that the new data we're adding is valid according to our Mongoose schema</span>. We can do this by using the `runValidators` update option. 
 
 Here's an example:
 
@@ -61,11 +55,11 @@ This will remove the document from the database permanently.
 ### Best practices when removing documents
 Here are some best practices to keep in mind when removing documents from a collection in Mongoose:
 
-1. <span>Be careful when using the `deleteMany()` method</span>, as it can remove a large number of documents at once. Make sure you `specify the query object carefully` to avoid accidentally deleting more documents than you intended.
+1. <span style="color:coral">Be careful when using the `deleteMany()` method</span>, as it can remove a large number of documents at once. Make sure you `specify the query object carefully` to avoid accidentally deleting more documents than you intended.
 
-2. <span> Always use a query object to specify which documents to remove</span>. Never remove all documents from a collection without a query object, as this can have serious consequences.
+2. <span style="color:coral"> Always use a query object to specify which documents to remove</span>. Never remove all documents from a collection without a query object, as this can have serious consequences.
 
-3. <span>Always handle errors when removing documents.</span> If an error occurs, the document may not be removed as expected, and this could cause issues in your application.
+3. <span style="color:coral">Always handle errors when removing documents.</span> If an error occurs, the document may not be removed as expected, and this could cause issues in your application.
 
-4. <span>Consider using soft deletes instead of hard deletes.</span> With soft deletes, you don't actually remove the document from the collection, but instead mark it as "deleted" by `setting a deleted field to true`. 
+4. <span style="color:coral">Consider using soft deletes instead of hard deletes.</span> With soft deletes, you don't actually remove the document from the collection, but instead mark it as "deleted" by `setting a deleted field to true`. 
 This can be useful if you need to keep a record of all documents that have been deleted, or if you need to restore deleted documents later on.

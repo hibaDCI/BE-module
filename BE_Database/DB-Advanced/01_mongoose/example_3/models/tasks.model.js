@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, {Schema, model} from 'mongoose';
 import { userSchema } from './users.model.js';
 
 //create schema for task
@@ -8,7 +8,7 @@ import { userSchema } from './users.model.js';
 // desc string only alphabet
 // assignee [users] required
 
-const taskSchema = new mongoose.Schema({
+const taskSchema = new Schema({
   title: {
     type: String,
     required: [true, "The title for a task is required!"],
@@ -22,7 +22,7 @@ const taskSchema = new mongoose.Schema({
   status: {
     type: String,
     enum: ["ongoing", "canceled", "done", "paused"],
-    required: [true, "The status for a task is required!"],
+    // required: [true, "The status for a task is required!"],
     default: "ongoing",
   },
 
@@ -34,4 +34,4 @@ const taskSchema = new mongoose.Schema({
   assignee: [userSchema],
 });
 
-export default mongoose.model('Task', taskSchema);
+export default model('Task', taskSchema);

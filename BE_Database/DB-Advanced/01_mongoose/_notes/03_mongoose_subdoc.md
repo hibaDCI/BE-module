@@ -1,12 +1,6 @@
-<style>
-    span{
-        color: coral;
-    }
-</style>
-
 # Sub Documents
 
-<span>Subdocuments in Mongoose allow you to **nest objects in a Schema**.</span> This can be useful for creating complex data structures and improving the organization of your code. In addition, **subdocuments can be used to share common data structures between multiple Schemas**.
+<span style="color:coral">Subdocuments in Mongoose allow you to **nest objects in a Schema**.</span> This can be useful for creating complex data structures and improving the organization of your code. In addition, **subdocuments can be used to share common data structures between multiple Schemas**.
 
 <br>
 
@@ -34,7 +28,7 @@ const albumSchema = new mongoose.Schema({
 In this example, the `trackSchema` is defined first, and then included as a property in the `albumSchema` under the tracks field.
 
 ### 1. Using Sub Documents for Common Data Structures
-Another use case for subdocuments is to <span>share common data structures between multiple Schemas</span>. For example, if you have multiple Schemas that all have an `address field`, you can define an `addressSchema` subdocument and include it in each of the parent Schemas.
+Another use case for subdocuments is to <span style="color:coral">share common data structures between multiple Schemas</span>. For example, if you have multiple Schemas that all have an `address field`, you can define an `addressSchema` subdocument and include it in each of the parent Schemas.
 
 ```js
 const addressSchema = new mongoose.Schema({
@@ -87,7 +81,7 @@ const albumSchema = new mongoose.Schema({
 In this section, we'll update our project's controllers to handle retrieving data from our database.
 
 ### 1. Getting All Documents in Collection
-To <span>retrieve all documents in a collection</span>, you can use the find() method on the Mongoose model. For example:  
+To <span style="color:coral">retrieve all documents in a collection</span>, you can use the find() method on the Mongoose model. For example:  
 
 ```js
 const albums = await Album.find({});
@@ -98,7 +92,7 @@ In this example, we're retrieving all documents in the `Album` collection.
 <br>
 
 ### 2. URL - Query Params
-Query parameters are <span>a way to pass additional data to a URL</span>. In Express, __query parameters__ can be accessed through the `req.query` object. For example:
+Query parameters are <span style="color:coral">a way to pass additional data to a URL</span>. In Express, __query parameters__ can be accessed through the `req.query` object. For example:
 
 ```javascript
 // GET /albums?artist=The%20Beatles
@@ -131,7 +125,7 @@ In our project's controllers, we will often need to retrieve data from the datab
 <br>
 
 ### 1. Route params
-<span>Route parameters are variables that are part of the URL path.</span> In Express, we can access route parameters using `req.params` object. 
+<span style="color:coral">Route parameters are variables that are part of the URL path.</span> In Express, we can access route parameters using `req.params` object. 
 
 For example:
 
@@ -160,7 +154,7 @@ This will retrieve the album with the specified `id` from the database.
 <br>
 
 ### 3. Handling unfound documents with http-errors
-When retrieving a document by id, it's possible that the document may not exist in the database. To handle this situation, we can use the `http-errors` library to <span>create a 404 error</span>. For example:
+When retrieving a document by id, it's possible that the document may not exist in the database. To handle this situation, we can use the `http-errors` library to <span style="color:coral">create a 404 error</span>. For example:
 
 ```javascript
 import createError from 'http-errors';

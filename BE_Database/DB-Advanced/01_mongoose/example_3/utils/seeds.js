@@ -1,5 +1,5 @@
-import User from '../models/users.model.js'
 import { faker } from '@faker-js/faker';
+import User from '../models/users.model.js'
 
 export const seedUsers = async (minDocs) => {
     try {

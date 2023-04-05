@@ -59,6 +59,16 @@ export const userSchema = new mongoose.Schema({
     enum: ["admin", "user"],
     default: "user",
   },
+
+  lastTimeUpdated: {
+    type: Date,
+    default: Date.now()
+  },
+
+  isDeleted: {
+    type: Boolean,
+    default: false
+  }
 });
 
 /**
@@ -87,4 +97,4 @@ userSchema.statics.getAdmins = function() {
 }
 
 //generate model
-export default mongoose.model("User", userSchema);
+export default  mongoose.model("User", userSchema);

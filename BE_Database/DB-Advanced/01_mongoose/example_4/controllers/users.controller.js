@@ -1,12 +1,13 @@
 import createError from "http-errors";
-import User from "../models/users.model.js";
+import { User } from "../models/users.model.js";
+import { Post } from '../models/posts.model.js';
 
 /* ------------------------- get all users ------------------------ */
 export const getAllUsers = async (req, res, next) => {
   try {
 
     //1. find all documents
-    const users = await User.find({isDeleted: false}, 'firstname lastname birthdate email username role');
+    const users = await User.find({}, 'name email posts').populate('posts');
     
     //2. send response
     res.status(200).json({
@@ -47,7 +48,7 @@ export const addNewUser = async (req, res, next) => {
     console.log(await User.getAdmins());
     
     //4. send response
-    res.status(201).json({
+    res.status(200).json({
       message: 'user registered successfully!',
       user: newUser
     });
@@ -56,6 +57,25 @@ export const addNewUser = async (req, res, next) => {
     next(error);
   }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ------------------------ get user by id ------------------------ */
@@ -78,77 +98,37 @@ export const getUserById = async (req, res, next) => {
   }
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ----------------------- update user by id ---------------------- */
 export const updateUser = async (req, res, next) => {
   try {
-    //read params uid
-    const { uid } = req.params;
+    const uid = parseInt(req.params.uid);
+    if (isNaN(uid)) {
+      return next(createError(400, "User-id must be a number! 🚨"));
+    }
 
-    const updatedUser = await User
-      .findByIdAndUpdate(
-        uid, { ...req.body }, { new: true, runValidators: true });
+    const uIndex = db.data.users.findIndex((u) => u.id === uid);
+    if (uIndex === -1) {
+      return next(createError(404, "There is no user with given user-id! 🚨"));
+    }
+    //update user in db
+    db.data.users[uIndex] = { ...db.data.users[uIndex], ...req.body };
+    await db.write();
+
+    //destructure the updated user to send insensitive data to client
+    const { fullname, username, email, password } = db.data.users[uIndex];
     res.status(200).json({
-      message: 'user updated successfully!',
-      user: updatedUser
-    })
-    
+      message: "update successful!",
+      user: { fullname, username, email, password },
+    });
   } catch (error) {
     next(error);
   }
 };
 
-
-
-
-
-
-
-
-
-
-
-
 /* ----------------------- delete user by id ---------------------- */
 export const deleteUser = async (req, res, next) => {
   try {
-    //read uid from params
-    const { uid } = req.params;
-
-    //hard delete
-    // const result = await User.findByIdAndRemove(uid);
-    // res.status(200).json({
-    //   message: "User deleted successfully!",
-    //   result
-    // });
-
-    //soft delete
-    const softDeletedUser = await User
-      .findByIdAndUpdate(uid, { isDeleted: true }, { new: true });
-    res.status(200).json({
-      message: "User deactivated!",
-      user: softDeletedUser
-    })
-
-
+   
   } catch (error) {
     next(error);
   }

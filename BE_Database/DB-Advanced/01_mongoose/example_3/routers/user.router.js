@@ -10,7 +10,7 @@ userRouter.route('/')
     .get(getAllUsers)
     .post(addNewUser);
 
-// userRouter.route('/:uid')
+userRouter.route('/:uid')
     // .get(getUserById)
-    // .put(updateUser)
-    // .delete(deleteUser);
+    .put(updateUser)
+    .delete(deleteUser);
