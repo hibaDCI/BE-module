@@ -10,6 +10,9 @@ export async function connectToDB() {
     
     //alternative for try..catch to catch the errors
     // mongoose.connection.on('error', (err)=>{console.log(err.message)})
+
+    //seeding user
+    seedUsers(100)
   } catch (error) {
     console.error(error.message);
   }

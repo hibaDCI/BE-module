@@ -1,5 +1,6 @@
 import User from '../models/users.model.js'
 import Task from '../models/tasks.model.js'
+import createError from 'http-errors';
 
 /* ------------------------- get all todos ------------------------ */
 // export const getAllTodos = async (req, res, next) => {
@@ -21,6 +22,9 @@ export const addNewTask = async (req, res, next) => {
 
     //find the user by assignee id come from req.body
     const user = await User.findById(req.params.id);
+    if (!user) {
+      throw createError.NotFound('User not found!');
+    }
 
     //create a document for a task
     const newTask = await Task.create({ title, deadline, status, desc, assignee: user });
@@ -29,6 +33,7 @@ export const addNewTask = async (req, res, next) => {
       message: "New Task added successfully!",
       newTask,
     });
+
   } catch (error) {
     next(error);
   }

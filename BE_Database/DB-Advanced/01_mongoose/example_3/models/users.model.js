@@ -22,7 +22,7 @@ export const userSchema = new mongoose.Schema({
   lastname: {
     type: String,
     required: [true, "firstname is required!"],
-    match: [/^[A-Za-z]{3,}$/, "firstname is not valid!"],
+    // match: [/^[A-Za-z]{3,}$/, "lastname is not valid!"],
   },
 
   birthdate: {
