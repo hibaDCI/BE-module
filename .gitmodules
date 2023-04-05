@@ -1,0 +1,3 @@
+[submodule "BE_Exercises/05_be-recordshop/05_be_recordshop"]
+	path = BE_Exercises/05_be-recordshop/05_be_recordshop
+	url = git@github.com:FbW-WD-22-E07/BE-module.git
