@@ -1,9 +1,27 @@
-import mongoose, { Schema, model } from "mongoose";
+import { Schema, model } from "mongoose";
 
 const commentSchema = new Schema({
-  content: { type: String, required: [true, "content is a required field!"] },
-  author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  post: { type: mongoose.Schema.Types.ObjectId, ref: "Post" },
+    content: {
+        type: String,
+        required: [true, 'content field is required!']
+    },
+
+    create_at: {
+        type: Date,
+        default: Date.now()
+    },
+
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: [true, 'author field is required!']
+    },
+
+    post: {
+        type: Schema.Types.ObjectId,
+        ref: 'Post',
+        required: [true, 'post field is required!']
+    }
 });
 
-export default model("Comment", commentSchema);
+export const Comment = model('Comment', commentSchema);

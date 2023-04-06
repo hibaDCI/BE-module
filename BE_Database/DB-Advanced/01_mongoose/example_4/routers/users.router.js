@@ -1,18 +1,12 @@
 import express from 'express';
-import { addNewUser, getAllUsers } from '../controllers/users.controller.js';
-import { addNewPost, getAllPosts } from '../controllers/posts.controller.js';
-
+import { addUser, allUsers, getProfile } from '../controllers/users.controller.js';
 export const userRouter = express.Router();
 
+
 userRouter.route('/')
-    .get(getAllUsers)
-    .post(addNewUser);
+    .post(addUser)
+    .get(allUsers)
 
-userRouter.route('/:uid/posts')
-    .get(getAllPosts)
-    .post(addNewPost);
+userRouter.route('/:uid')
+    .get(getProfile)
 
-// userRouter.route('/:uid')
-    // .get(getUserById)
-    // .put(updateUser)
-    // .delete(deleteUser);

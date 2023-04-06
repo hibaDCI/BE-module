@@ -1,43 +1,74 @@
-import createError from 'http-errors';
+import createError from "http-errors";
 import { User } from "../models/users.model.js";
 import { Post } from "../models/posts.model.js";
 
 
-/* ------------------------- get all Posts ------------------------ */
-export const getAllPosts = async (req, res, next) => {
+// POST /users/:uid/posts
+export const addPost = async (req, res, next) => {
   try {
-    const posts = await Post.find({author: req.params.uid}).populate('author');
-    res.status(200).json({ message: "get posts successful", posts });
+    //get uid
+    const { uid } = req.params;
+    const { title, content } = req.body;
 
+    //check if uid is valid
+    const user = await User.findById(uid);
+
+    //if uid not valid return error
+    if (!user) {
+      throw createError.NotFound("User not found!");
+    }
+
+    //create a post
+    const newPost = await Post.create({ title, content, author: user._id });
+
+    //send response
+    res.status(201).json({
+      message: "New Post created!",
+      newPost,
+    });
   } catch (error) {
     next(error);
   }
 };
 
-/* ------------------------- add new todo ------------------------- */
-export const addNewPost = async (req, res, next) => {
+// GET  /users/:uid/posts
+export const allPostOfUser = async (req, res, next) => {
   try {
-    const { title, content } = req.body;
-    const { uid } = req.params;
+    //read the uid
+      const { uid } = req.params;
 
-    //find the user by id
-    const user = await User.findById(uid);
-    if (!user) {
-      throw createError.NotFound('User not found!');
-    }
+    //find the user
+      const user = await User.findById(uid);
 
-    //create a document for a post
-    const newPost = new Post({ title, content, author: user._id });
-    //add id of this post into user's document
-    user.posts.push(newPost._id);
-    await newPost.save();
-    await user.save();
+    //if uid invalid throw error
+      if (!user) {
+          throw createError.NotFound('The given uid is invalid!')
+      }
 
-    res.status(200).json({
-      message: "New Post added successfully!",
-      user, newPost
+    //find all post with author user._id
+      const posts = await Post.find({author: user._id})
+
+    //send response
+    res.status(201).json({
+      message: `All post of ${user.name}`,
+      posts,
     });
+      
   } catch (error) {
     next(error);
   }
+};
+
+
+//GET /posts
+export const allPostWithTheirAuthor = async (req, res, next) => {
+    try {
+        const posts = await Post.find().populate('author', {name: 1,email: 1,  _id: 0})
+        res.status(200).json({
+            message: "list of posts with author id",
+            posts
+        })
+    } catch (error) {
+        next(error)
+    }
 };
