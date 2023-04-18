@@ -61,6 +61,8 @@ We can also use the populate() method along with the select() method to retrieve
 
 ### `Aggregate.prototype.exec()`
 - In Mongoose, `a query is not executed until we call the exec() method`. 
+- Executes the aggregate pipeline on the currently bound Model.
+- Return a `Promise`
 
 For example, in the following code:
 
@@ -98,5 +100,3 @@ User.find({})
     .sort("name")
     .exec();
     ```  
- -->
-<!-- 
