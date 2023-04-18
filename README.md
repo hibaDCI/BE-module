@@ -47,4 +47,4 @@ Finally, you will gain practical skills in deploying your projects to various pl
 | 14 | 04.04.2023 | Recap on Mongoose Schema Options + Sub Documents + Seeding | [Link](https://us02web.zoom.us/rec/share/F8h1f1cMax7tgiqMqdWF1f-hsQFiRVunkK6Hgg1mm4dXgoqmmAYe7yCscwesuZ02.rWjmFmcmFXRka61I) | 66H7iH!X  |
 | 15 | 05.04.2023 | Recap on Sub Documents + CRUD Update-Delete  | [Link](https://us02web.zoom.us/rec/share/NEbrJOGUo1IFl1aAfEHTg3J9H9lFMiRhrBUibGKZj-9-Dj-aknXa_KyWEOW124DI.BzRRvo_4OBdphHuN) | M1PCB^cp  |
 | 16 | 06.04.2023 | Recap CRUD Update-Delete + Relations + Populate  | [Link](https://us02web.zoom.us/rec/share/RJGquLOUQ_MyeGeB0ZlOHhUIfpvblfKe3b1_nruNKoVBqPil_BLCQ8HQIFk30TqB.ecKlMMTg0XUq9NxO) | rN7SJ.c1  |
-| 16 | 17.04.2023 | Recap on the sub-module + Delete  | [Link](https://us02web.zoom.us/rec/share/dvAalDpzyAB8gI4-oP-Hh8AxTLzrmbiWRocGoECXtQ0dByLtw-YD7_j7OoQFyxl6.TCQRlYHqdFQgXzwr) | CD?99%O#  |
+| 17 | 17.04.2023 | Recap on the sub-module + Delete  | [Link](https://us02web.zoom.us/rec/share/dvAalDpzyAB8gI4-oP-Hh8AxTLzrmbiWRocGoECXtQ0dByLtw-YD7_j7OoQFyxl6.TCQRlYHqdFQgXzwr) | CD?99%O#  |
