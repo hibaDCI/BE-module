@@ -45,7 +45,7 @@ export const seedUsers = async (minDocs) => {
               post.title = faker.lorem.words(5);
               post.content = faker.lorem.paragraph();
               post.author = faker.helpers.arrayElement(fetchedUsers)._id;
-
+              post.likes = faker.datatype.number()
               posts.push(post);
             }
             

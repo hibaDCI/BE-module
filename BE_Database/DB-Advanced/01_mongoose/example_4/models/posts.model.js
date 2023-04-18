@@ -21,7 +21,14 @@ const postSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: [true, 'author is required!']
-    }
+    },
+
+    likes: {
+        type: Number,
+        default: 0,
+        min: 0
+    },
+
 });
 
 

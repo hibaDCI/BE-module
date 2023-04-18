@@ -1,5 +1,5 @@
 import express from "express";
-import { addPost, allPostOfUser, allPostWithTheirAuthor } from "../controllers/posts.controller.js";
+import { addPost, allPostOfUser, allPostWithTheirAuthor, deletePostById, getAllPostsByAuthors, getPostByIdPlusAuthor } from "../controllers/posts.controller.js";
 export const postRouter = express.Router();
 
 
@@ -9,4 +9,11 @@ postRouter.route("/users/:uid")
 
 
 postRouter.route('/')
-    .get(allPostWithTheirAuthor)
+    .get(allPostWithTheirAuthor);
+
+
+postRouter.route('/:pid')
+    .get(getPostByIdPlusAuthor)
+    .delete(deletePostById)
+
+postRouter.route("/authors/:authors").get(getAllPostsByAuthors);
