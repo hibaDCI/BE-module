@@ -48,3 +48,4 @@ Finally, you will gain practical skills in deploying your projects to various pl
 | 15 | 05.04.2023 | Recap on Sub Documents + CRUD Update-Delete  | [Link](https://us02web.zoom.us/rec/share/NEbrJOGUo1IFl1aAfEHTg3J9H9lFMiRhrBUibGKZj-9-Dj-aknXa_KyWEOW124DI.BzRRvo_4OBdphHuN) | M1PCB^cp  |
 | 16 | 06.04.2023 | Recap CRUD Update-Delete + Relations + Populate  | [Link](https://us02web.zoom.us/rec/share/RJGquLOUQ_MyeGeB0ZlOHhUIfpvblfKe3b1_nruNKoVBqPil_BLCQ8HQIFk30TqB.ecKlMMTg0XUq9NxO) | rN7SJ.c1  |
 | 17 | 17.04.2023 | Recap on the sub-module + Delete  | [Link](https://us02web.zoom.us/rec/share/dvAalDpzyAB8gI4-oP-Hh8AxTLzrmbiWRocGoECXtQ0dByLtw-YD7_j7OoQFyxl6.TCQRlYHqdFQgXzwr) | CD?99%O#  |
+| 18 | 18.04.2023 | Recap Delete + populate + Adv query methods  | [Link](https://us02web.zoom.us/rec/share/qNE8mawYPiRPsx7rnEUCGNwDqFmMhmoU7Pre9lAiCal7hpiXSpw07uKlJ-QClI9c.UcgX4fdLk6gLAcVq) | jrZL%5&N  |
