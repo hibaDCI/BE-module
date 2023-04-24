@@ -2,11 +2,12 @@ import { Address, User } from '../models/users.js';
 import { Product } from '../models/products.js';
 import { Cart } from '../models/carts.js';
 import createError from 'http-errors';
-import { validationResult } from 'express-validator';
 
 // POST /users/signup
 export const signup = async (req, res, next) => {
     try {
+        console.log('controller')
+       
 
         // destructure and check required fields
         const { name, birthdate, email, password, role, address } = req.body;
@@ -33,6 +34,13 @@ export const signup = async (req, res, next) => {
         next(error)
     }
 }
+
+
+
+
+
+
+
 
 
 // POST /users/login

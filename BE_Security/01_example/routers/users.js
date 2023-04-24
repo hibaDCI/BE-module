@@ -1,9 +1,11 @@
 import express from 'express';
-import {signup, login, getUserCart, getUserOrders} from '../controllers/users.js'
+import { signup, login, getUserCart, getUserOrders } from '../controllers/users.js'
+import { validate } from '../validation/validator.js';
+import { usersValidations } from '../validation/users.js';
 const router = express.Router();
 
 //register users
-router.route('/signup').post(signup);
+router.route('/signup').post(validate(usersValidations), signup);
 
 //authenticate users
 router.route('/login').post(login);
