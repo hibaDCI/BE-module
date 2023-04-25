@@ -1,3 +1,4 @@
+import { Author } from '../models/authors.js';
 import { Book } from '../models/books.js';
 import { Review } from "../models/reviews.js";
 import createError from 'http-errors';
@@ -5,7 +6,10 @@ import createError from 'http-errors';
 //get all books
 export const getAllBooks = async (req, res, next) => {
     try {
-        const books = await Book.find();
+        const books = await Book.find()
+            .populate(`authors`, 'name email brithdate -_id')
+            .exec();
+        
         res.status(200).json({
             message: 'list of all books',
             books
@@ -22,7 +26,10 @@ export const getBookWithReveiwsById = async (req, res, next) => {
     try {
 
         const bookid = req.params.bid;
-        const book = await Book.findById(bookid);
+        const book = await Book.findById(bookid)
+            .populate('authors', 'name -_id')
+            .select('title description price genre authors -_id')
+            .exec();
 
         if (!book) {
             throw createError.NotFound('There is no book for given bookid');
@@ -46,15 +53,24 @@ export const getBookWithReveiwsById = async (req, res, next) => {
 export const addNewBook = async (req, res, next) => {
     try {
         //1. read book's data from req.body
-        const { title, author, publish_date, genre, description, price } = req.body;
+        const { title, authors, publish_date, genre, description, price } = req.body;
 
         //2. check the required fields if exist
-        if (!title || !author || !genre || !price) {
+        if (!title || !authors.length || !genre || !price) {
             throw createError(400, 'Some of the required fields are missed!');
         }
 
+        //2.1 create authors documents
+        const authorDocs = [];
+        for (let author of authors) {
+            //check if author exist
+            let authorDoc = await Author.findOne(author);
+            if (!authorDoc){authorDoc = await Author.create(author);}                 
+            authorDocs.push(authorDoc._id);
+        }
+
         //3. create the book using Book model
-        const newBook = await Book.create({ title, author, publish_date, genre, description, price });
+        const newBook = await Book.create({ title, authors:authorDocs, publish_date, genre, description, price });
 
         //4. send response
         res.status(201).json({
@@ -125,5 +141,30 @@ export const deleteBookById = async (req, res, next) => {
 
     } catch (error) {
         next(error);
+    }
+}
+
+
+
+//get all books including their author's name,email and age
+export const getBooksPopulateAuthors = async (req, res, next) => {
+    try {
+        const books = await Book.find()
+            .populate('authors', 'name email birthdate -_id')
+            //! check here again
+            .select('title authors[`name`]')
+            .exec();
+                
+        
+        if (!books.length) {
+            return res.status(404).send('There is no book in DB!')
+        }
+
+        res.status(200).json({
+            message: 'list of books with title and authors info.',
+            books
+        })
+    } catch (error) {
+        next(error)
     }
 }

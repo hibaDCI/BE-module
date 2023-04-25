@@ -6,12 +6,12 @@ const bookSchema = new Schema({
     required: [true, "Title is a required field"],
   },
 
-  author: {
-    type: String,
-    required: [true, "Author is a required field"],
-    match: /^[\w\W]{3,}$/,
-    message: "Provide a valid value for Author.",
-  },
+  authors: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Author",
+    },
+  ],
 
   publish_date: {
     type: Date,
@@ -41,5 +41,6 @@ const bookSchema = new Schema({
     min: 0,
   },
 });
+
 
 export const Book = model("Book", bookSchema);
