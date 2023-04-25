@@ -1,10 +1,12 @@
 import express from "express";
-const router = express.Router();
 import { getProductList, addNewProduct, updateProduct, deleteProduct } from "../controllers/products.js";
+import { validate } from '../validation/validator.js';
+import { productValidations } from "../validation/products.js";
+const router = express.Router();
 
 router.route('/')
     .get(getProductList)
-    .post(addNewProduct)
+    .post(validate(productValidations), addNewProduct)
 
 router.route('/:pid')
     .put(updateProduct)

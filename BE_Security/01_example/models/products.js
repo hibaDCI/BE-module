@@ -50,6 +50,7 @@ const productSchema = new Schema({
       "Underwear",
       "Accessories",
       "Shoes",
+      "Tshirts"
     ],
     required: [true, "`Category` is a required field!"],
   },

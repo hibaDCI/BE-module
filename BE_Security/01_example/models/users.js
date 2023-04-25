@@ -1,5 +1,4 @@
 import { Schema, model } from "mongoose";
-import validator from "validator";
 
 const addressSchema = new Schema({
   country: String,

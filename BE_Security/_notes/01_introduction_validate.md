@@ -119,7 +119,6 @@ When it comes to working with data, it's important to ensure that it is `consist
   );
   ```
 
-<!-- 
 
 ---
 
@@ -164,7 +163,10 @@ When it comes to working with data, it's important to ensure that it is `consist
   For example:
 
   ```js
-  check('email').normalizeEmail()
+  check('email')
+    .normalizeEmail() //sanitizer
+    .escape() //sanitizer
+    .isEmail().withMessage('Invalid Email') //validator
   ```
   This will normalize the email field.
 
@@ -174,6 +176,8 @@ When it comes to working with data, it's important to ensure that it is `consist
   check(<field name>).<matchers>.trim()
   ```
   The `trim()` function can be used in conjunction with a validation library, such as express-validator, to automatically trim whitespace from user input. 
+
+
   
   For example:
 
@@ -224,6 +228,8 @@ Properly formatting your code is important for readability, maintainability, and
   ├─ controllers/
   ├─ models/
   ├─ routes/
-  └─ validation/
+  └─ validations/
    ``` 
+  
+  <!-- 
   -->

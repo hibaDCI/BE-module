@@ -17,7 +17,12 @@ export const getProductList = async (req, res, next) => {
 // POST /products/
 export const addNewProduct = async (req, res, next) => {
     try {
-        
+        console.log('controller');
+        const newProduct = await Product.create(req.body);
+        res.status(200).json({
+            message: 'add new product!',
+            newProduct
+        })
     } catch (error) {
         next(error)
     }
