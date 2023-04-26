@@ -3,6 +3,38 @@
 Please build a simple "bookstore" application using Node.js, Express, and Mongoose. The bookstore application should allow users to create books and reviews, as well as view, update, and delete them.
 
 ---
+# Part 3 - Exercise
+
+## Encryption using bcrypt
+In this task, you will be adding a new User model to the existing bookstore app, along with validators and sanitizers for the model fields.
+
+You will then define routes for user signup and signin, and use bcrypt to hash the user's password and bcrypt.compare to signin. 
+
+Follow the steps below to complete the task:
+
+#### 1. Create a new User model with the following fields:
+
+- name (required)
+- email (required and unique)
+- password (required)
+- createdAt (default: current date)
+
+#### 2. Use validators and sanitizers to ensure that:
+
+- The name field contains only letters and spaces
+- The email field is a valid email address
+- The password field is at least 6 characters long
+
+#### 3. Define the following routes for user signup and signin:
+
+- POST /signup  
+  - This route should accept `name`, `email`, and `password` in the `request body`. 
+  - It should create a new user with the provided information, `hash the password using bcrypt`, and store the user in the database. 
+- POST /signin 
+  - This route should accept `email` and `password` in the request body. It should verify the user's credentials, i.e., check if the email exists and the password is correct using `bcrypt.compare()`. 
+  
+
+#### 4. Test the routes using a tool like Postman or ThunderClient.
 # Part 2 - Exercise
 
 ## Populate and Select:
