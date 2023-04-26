@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import { Schema, model } from "mongoose";
 
 const addressSchema = new Schema({
@@ -47,6 +48,34 @@ const userSchema = new Schema({
     required: [true, "`Address` field is required!"],
   },
 });
+
+
+//mongoose middleware to hash the password
+userSchema.pre('save', async function (next) {
+  try {
+    //jump to next middleware if password not modified
+    if (!this.isModified('password')) return next();
+
+    //generate the salt value
+    const salt = await bcrypt.genSalt(10);
+    //hash the password using salt value
+    this.password = await bcrypt.hash(this.password, salt);
+
+    next();
+  } catch (error) {
+    next(error)
+  }
+})
+
+
+//mongoose method to compare hash value with plain-text password
+userSchema.methods.isPasswordMatch = async function (textPass, hashValue) {
+  try {
+    return await bcrypt.compare(textPass, hashValue);
+  } catch (error) {
+    next(error)
+  }
+}
 
 export const Address = model("Address", addressSchema);
 export const User = model("User", userSchema);

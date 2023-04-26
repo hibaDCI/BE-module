@@ -229,7 +229,4 @@ Properly formatting your code is important for readability, maintainability, and
   ├─ models/
   ├─ routes/
   └─ validations/
-   ``` 
-  
-  <!-- 
-  -->
+   ```

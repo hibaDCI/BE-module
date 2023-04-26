@@ -57,3 +57,25 @@ export const usersValidations = [
     .notEmpty()
     .withMessage("Building is a required field!"),
 ];
+
+
+export const userValidationLogin = [
+  body("email")
+    .trim()
+    .escape()
+    .notEmpty()
+    .withMessage("Please provide email!")
+    .isEmail()
+    .withMessage("Please use a valid email!")
+    .normalizeEmail(),
+
+  body("password")
+    .trim()
+    .escape()
+    .notEmpty()
+    .withMessage("Please provide password!")
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$/)
+    .withMessage(
+      "Please use at least one upper/onelower case letter + one digit in the password"
+    ),
+];
