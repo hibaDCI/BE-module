@@ -27,6 +27,7 @@ const bookSchema = new Schema({
       "horror",
       "thriller",
       "historical-fiction",
+      "self-learning",
     ],
     required: [true, "Genre is a required field"],
   },
@@ -40,7 +41,12 @@ const bookSchema = new Schema({
     required: [true, "Price is a required field"],
     min: 0,
   },
-});
 
+  rating: {
+    type: Number,
+    min: 0,
+    max: 5,
+  },
+});
 
 export const Book = model("Book", bookSchema);

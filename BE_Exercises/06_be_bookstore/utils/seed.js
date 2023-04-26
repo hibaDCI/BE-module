@@ -10,6 +10,7 @@ export const addSampleData = async (minDocs) => {
         const books = [];
         const reviews = [];
 
+/* ---------------------------- AUTHORS --------------------------- */
         //count docs in author collection
         const curDocsInAuthors = await Author.countDocuments();
 
@@ -34,8 +35,7 @@ export const addSampleData = async (minDocs) => {
         const authorsInDB = await Author.create(authors);
         console.log('authors added!');
 
-/* ------------------------------- . ------------------------------ */
-
+/* ----------------------------- BOOKS ---------------------------- */
         //count docs in books collection
         const curDocsInBooks = await Book.countDocuments();
 
@@ -59,7 +59,8 @@ export const addSampleData = async (minDocs) => {
                 "historical-fiction",
               ]),
                 description: faker.lorem.paragraph(),
-              price: faker.commerce.price()
+                price: faker.commerce.price(),
+              rating: faker.datatype.number({min:0, max:5})
             };
 
             books.push(book);
@@ -69,7 +70,7 @@ export const addSampleData = async (minDocs) => {
         const booksInDB = await Book.create(books);
         console.log('books added!');
 
-/* ------------------------------- . ------------------------------ */
+/* ---------------------------- REVIEWS --------------------------- */
         //add sample reviews
         const curDocsInReviews = await Review.countDocuments();
         if (minDocs <= curDocsInReviews) {

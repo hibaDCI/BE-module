@@ -8,23 +8,14 @@ Additionally, you will delve into the crucial topic of security, learning about 
 Finally, you will gain practical skills in deploying your projects to various platforms and environments. By the end of this module, you will have a solid foundation in these critical areas of technology, enabling you to tackle complex challenges with confidence.
 
 # Module Content
-## Backend Server
+## Backend Module
 | Topics | Subtopics |
 | ------ | --------- |
-| **Introduction** | - The server as a program <br> - Server-client concept <br> - The role of the backend |
-| **Running JS on the OS** | - Node scripts & npm workflow <br> - Host Objects vs. Native Objects <br> - Printing to the Terminal <br> - Getting arguments <br> - Exiting a program <br> - Debugging |
-| **HTTP: a server is a command line program** | - Listening to requests <br> - Working with servers <br> - Creating a (very) simple server <br> - Working on ports <br> - The request response cycle |
-| **Getting data** | - Calling external servers <br> - Working with events <br> - The get shortcut |
-| **Third party modules** | - Overview of node-fetch, request, and axios packages <br> - The joy of axios <br> - Express vs. http.createServer |
-| **Mock** | - Mock database for quick prototyping <br> - Reading and writing to json file <br> - Setting up lowdb |
-| **Controller** | - MVC Concepts <br> - Attaching controllers to our app <br> - REST I <br> - Sending responses <br> - Project Organization I |
-| **Request** | - The request object <br> - Receiving JSON requests <br> - REST II |
-| **Frontend & Backend** | - Requests from the frontend |
-| **Middleware** | - Using middleware <br> - Reviewing used middleware <br> - Reading middleware <br> - Middleware function signature <br> - Project organization II |
-| **Router** | - Organizing common paths <br> - Chaining handlers <br> - Project organization III <br> - REST III |
-| **Handling Errors** | - Error handling middleware signature <br> - Changing response status <br> - Using the error handler <br> - Catching 404s with a default route |
-| **Environment Variables** | - Development vs. Production <br> - Project Organization VI <br> - Centralizing secrets in one place |
-| **Deployment intro** | - Defining production secrets <br> - Using Render |
+| **Backend Server** | - Introduction <br> - Running JS on OS <br> - Command line programs <br> - Listening to requests <br> - Geting data <br> - Third-party modules <br> - Mock database using lowdb <br> - Controllers in MVC architecture <br> - Request Object <br> - Frontend & Backend <br> - Middleware functions <br> - Router middlewares <br> - Handling errors <br> - Environment variables <br> - Deployment|
+| **Database Basics** | - Introduction <br> - DB installation <br> - Shell (mongo-shell and mySQL shell) <br> - Tables vs Collections <br> - Rows vs Documents <br> - Columns vs Fields <br> - Key vs Id <br> - CRUD oprations  <br> - The DB GUI|
+| **Database Advanced** |  <br> - Introduction (ODM vs ORM) <br> - Adding Mongoose <br> - Schema design principle I<br> - Models <br> - Mocking data with faker.js <br> - Schema options <br> - Sub documents <br> - Retrieve I <br> - Retrieve II <br> - Update and Delete <br> - Relational vs Non-Relational <br> - Schema design principle II <br> - Creating relations <br> - Populate and Select <br> - Advanced querying |
+| **Server Security** |  <br> - Introduction <br> - Validating data <br> - Checking for errors <br> - Sanitizing data <br> - Format (validation middleware) <br> - Authentication and Access control <br> - Encryption <br> - Creating users <br> - Logging In <br> - Authenticating Requests <br> - Access Control <br> - Updating and Deleting <br> - State and the server - Stateless HTTP <br> - Cookies <br> - Cross Site Request Forgery <br> - Client-side vs Server-side validation <br> - Working with file uploads <br> - Verification <br> - Deployment of fullstack app|
+
 
 
 
@@ -50,3 +41,4 @@ Finally, you will gain practical skills in deploying your projects to various pl
 | 17 | 17.04.2023 | Recap on the sub-module + Delete  | [Link](https://us02web.zoom.us/rec/share/dvAalDpzyAB8gI4-oP-Hh8AxTLzrmbiWRocGoECXtQ0dByLtw-YD7_j7OoQFyxl6.TCQRlYHqdFQgXzwr) | CD?99%O#  |
 | 18 | 18.04.2023 | Recap Delete + populate + Adv query methods  | [Link](https://us02web.zoom.us/rec/share/qNE8mawYPiRPsx7rnEUCGNwDqFmMhmoU7Pre9lAiCal7hpiXSpw07uKlJ-QClI9c.UcgX4fdLk6gLAcVq) | jrZL%5&N  |
 | 19 | 24.04.2023 | Validating data using express-validator  | [Link](https://us02web.zoom.us/rec/share/cYDRMsblSZqFgdqRSpoJACqfPYmteL1aVz6UdOWy-qD5AkMVjk5k-GMI8X5Bpp3N.EKGuYsEsM_ZbMLHx) | h9XB@zP+  |
+| 20 | 25.04.2023 | Recap on Validation + Sanitization using express-validator  | [Link](https://us02web.zoom.us/rec/share/b_RuxxeABTl5JfgiT4OLzFT_oRk_Yj-GmHsqwPyPWLR32aqft5uCeQN5mCAYLiu2.rQDpHTM6qElVbWVF) | zV3.IX#L  |

@@ -19,7 +19,7 @@ const app = express();
 console.log(process.NODE_ENV === "production" ? "production" : "development");
 
 //database
-connectToDB();
+await connectToDB();
 
 //apply core middlewares
 app.use(express.json());
@@ -38,4 +38,4 @@ app.use(genericErrHandler);
 
 //port
 const port = process.env.PORT;
-app.listen(port, console.log(`Server is up on port: ${port} 🆗`));
+app.listen(port, console.log(`Server is up on: ${port} \n-----------\n`));

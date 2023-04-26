@@ -8,10 +8,8 @@ export async function connectToDB() {
     console.log("DB Connection Established! 😃");
 
     //seed
-    addSampleData(100);
+    await addSampleData(100);
 
-    //alternative for try..catch to catch the errors
-    // mongoose.connection.on('error', (err)=>{console.log(err.message)})
   } catch (error) {
     console.error(error.message);
   }
