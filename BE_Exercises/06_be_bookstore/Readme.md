@@ -3,6 +3,15 @@
 Please build a simple "bookstore" application using Node.js, Express, and Mongoose. The bookstore application should allow users to create books and reviews, as well as view, update, and delete them.
 
 ---
+# Part 4 - Exercise
+## JsonWebToken
+### Task:
+
+1. After the user signs up or signs in, create a JSON Web Token (JWT) token that contains the user's ID and email address as payload.
+
+2. Define a middleware function to protect the routes that require authentication by verifying the JWT token sent in the request header.
+
+3. Test signup/signin routes for generating token and protectect routes for token verification. 
 # Part 3 - Exercise
 
 ## Encryption using bcrypt
