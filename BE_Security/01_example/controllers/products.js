@@ -7,7 +7,10 @@ import { Cart } from "../models/carts.js";
 // GET /products/
 export const getProductList = async (req, res, next) => {
     try {
-        
+        console.log('getProductlist controller');
+        res.status(200).json({
+            message: 'Product list'
+        })
     } catch (error) {
         next(error)
     }

@@ -47,6 +47,8 @@ const userSchema = new Schema({
     ref: "Address",
     required: [true, "`Address` field is required!"],
   },
+
+  passwordChangedAt: Date
 });
 
 
@@ -61,6 +63,9 @@ userSchema.pre('save', async function (next) {
     //hash the password using salt value
     this.password = await bcrypt.hash(this.password, salt);
 
+    //set the time of changing password to passwordChangedAt
+    this.passwordChangedAt = new Date();
+
     next();
   } catch (error) {
     next(error)
@@ -69,13 +74,23 @@ userSchema.pre('save', async function (next) {
 
 
 //mongoose method to compare hash value with plain-text password
-userSchema.methods.isPasswordMatch = async function (textPass, hashValue) {
-  try {
-    return await bcrypt.compare(textPass, hashValue);
-  } catch (error) {
-    next(error)
-  }
+userSchema.methods.authenticate = async function (plainTextPass) {
+    return await bcrypt.compare(plainTextPass, this.password);
 }
+
+
+//check if password changed after issueing token
+userSchema.methods.changedPasswordAfter = function (jwtTimestamp) {
+  if (this.passwordChangedAt) {
+    const changedTimeStamp = parseInt(this.passwordChangedAt.getTime() / 1000);
+    console.log(changedTimeStamp, jwtTimestamp);
+    return jwtTimestamp < changedTimeStamp
+  }
+
+  //False means NOT changed
+  return false
+}
+
 
 export const Address = model("Address", addressSchema);
 export const User = model("User", userSchema);
