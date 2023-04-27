@@ -31,7 +31,7 @@ export const signup = async (req, res, next) => {
     newUser.password = undefined;
 
     //create JWT
-    const token = await createToken({userid: newUser._id, role: newUser.role}, 'mysecretkey', {expiresIn: '30d'})
+    const token = await createToken({ userid: newUser._id });
 
     //send response
     res.status(201).json({
@@ -52,19 +52,22 @@ export const signin = async (req, res, next) => {
     //1 find a user with given email address
     const user = await User.findOne({ email });
 
-    //2 compare password and hash value  
+    //2 compare password and hash value
     const isMatch = await user.authenticate(password);
     //3. send error while email or password is wrong
     if (!user || !isMatch) {
-      throw createError.NotFound("Login failed! Email or Password is wrong.");
+      throw createError(401, "Invalid Credentials!");
     }
+    //remove password from user document before send to client
+    user.password = undefined;
 
-    //create token
-    const token = await createToken({ userid: user._id, role: user.role }, 'mysecretkey', { expiresIn: '30d' });
+    //create JWT
+    const token = await createToken({ userid: user._id });
 
     //4. if user found by email and password matched with hash value send response
     res.status(200).json({
       message: "Congrats! You logged in successfully!",
+      user,
       token
     });
   } catch (error) {

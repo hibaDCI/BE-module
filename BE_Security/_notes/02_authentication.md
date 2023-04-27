@@ -1,4 +1,4 @@
-# Authentication and Access Control
+# Authentication I
 ## Introduction
 When building a backend express server, `security should always be a top priority`. This involves implementing various measures to prevent unauthorized access to sensitive data and protect against attacks. 
 
@@ -75,19 +75,17 @@ When building a backend express server, `security should always be a top priorit
 - This method takes two arguments: 
   - the plaintext password 
   - the hash value. 
-  
-    ```js
-    import bcrypt from 'bcrypt';
 
-    userSchema.methods.comparePassword = async (textPassword, hashedPassword)=>{
-        try{
-            return await bcrypt.compare(textPassword, hashedPassword)
-        
-        }catch(error){
-            next(error)
-        }
-    }
-    ```
+Here is an example method for comparing password to hash value:
+  
+```js
+import bcrypt from 'bcrypt';
+
+userSchema.methods.authenticate = async (plainTextPassword)=>{
+        //this.password is hashed value from DB
+        return await bcrypt.compare(plainTextPassword, this.password)
+}
+```
 - If the two passwords match, `bcrypt.compare()` will return `true`. If they do not match, it will return `false`.
 
 - Using `bcrypt.compare()` is a secure and reliable way to compare plain text and hashed passwords in Node.js.
@@ -95,9 +93,41 @@ When building a backend express server, `security should always be a top priorit
 - In conclusion, implementing proper security measures in our backend express servers is crucial to protect against attacks and maintain the integrity of our data. 
 
 - By utilizing authentication and access control, as well as encryption techniques like hashing and salting, we can ensure that our servers remain secure. 
+
+---
+<br>
+
+## Posting a Signin Request
+- This endpoint should accept a `POST request` with the `user's email and password` in the request body. 
+  
+- We can then use our `authenticate()` method to `verify the user's credentials`.
+
+    ```js
+    router.route('/signin', async (req, res, next)=>{
+        try{
+            //de-structure request's body object
+            const {email, password} = req.body;
+            //find user with given email address
+            const user = await User.findOne({email});
+            //compare password and hashed value in DB
+            const isMatched = await user.authenticate(password);
+            //if email or password is wrong
+            if(!user || !isMatched){
+                return createError(401, 'Invalid credentials');
+            }
+
+            //remove password from user for security porpuse
+            user.password = undefined;
+
+            //create JWT token
+
+            //send response
+            res.status(200).json({message: "Logged in successfully!", user})
+        
+        }catch(error){
+            next(error)
+        }
+    })
+    ```
 <!--
-
-
-
-
 -->

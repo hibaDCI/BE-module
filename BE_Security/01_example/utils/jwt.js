@@ -1,17 +1,12 @@
-import jwt from "jsonwebtoken";
-import { promisify } from "util";
+import jwt from 'jsonwebtoken';
+import { promisify } from 'util';
 
-//create a new token
-export async function createToken(payload) {
-  const signAsync = promisify(jwt.sign);
-  return await signAsync(payload, process.env.JWT_SECRET, {expiresIn: '30d'});
+export const createToken = async (payload) => {
+    const asyncSign = promisify(jwt.sign);
+    return await asyncSign(payload, process.env.JWT_SECRET, { expiresIn: '30d' });
 }
 
-
-//verify the given token
-export async function verifyToken(token) {
-    const verifyAsync = promisify(jwt.verify);
-    return await verifyAsync(token, process.env.JWT_SECRET);
+export const verifyToken = async (token, secret) => {
+    const asyncVerify = promisify(jwt.verify);
+    return await asyncVerify(token, secret);
 }
-
-
