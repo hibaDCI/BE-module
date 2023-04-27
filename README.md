@@ -42,3 +42,4 @@ Finally, you will gain practical skills in deploying your projects to various pl
 | 18 | 18.04.2023 | Recap Delete + populate + Adv query methods  | [Link](https://us02web.zoom.us/rec/share/qNE8mawYPiRPsx7rnEUCGNwDqFmMhmoU7Pre9lAiCal7hpiXSpw07uKlJ-QClI9c.UcgX4fdLk6gLAcVq) | jrZL%5&N  |
 | 19 | 24.04.2023 | Validating data using express-validator  | [Link](https://us02web.zoom.us/rec/share/cYDRMsblSZqFgdqRSpoJACqfPYmteL1aVz6UdOWy-qD5AkMVjk5k-GMI8X5Bpp3N.EKGuYsEsM_ZbMLHx) | h9XB@zP+  |
 | 20 | 25.04.2023 | Recap on Validation + Sanitization using express-validator  | [Link](https://us02web.zoom.us/rec/share/b_RuxxeABTl5JfgiT4OLzFT_oRk_Yj-GmHsqwPyPWLR32aqft5uCeQN5mCAYLiu2.rQDpHTM6qElVbWVF) | zV3.IX#L  |
+| 21 | 26.04.2023 | Recap on Validation + Sanitization + Hashing Password using bcrypt  | [Link](https://us02web.zoom.us/rec/share/JlJUQySejVWkJdTH4eD4rV5yAhZW7syzrLVWLmJ7yCHY7w-CFjHfMJZBLECkVSqm.IXugjIp-Zv-mE0AT) | P397$MUg  |
