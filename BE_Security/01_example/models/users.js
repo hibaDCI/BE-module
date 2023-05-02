@@ -38,8 +38,8 @@ const userSchema = new Schema({
 
   role: {
     type: String,
-    enum: ["user", "admin"],
-    default: "user",
+    enum: ["customer", "admin"],
+    default: "customer",
   },
 
   address: {
@@ -64,9 +64,27 @@ userSchema.pre('save', async function (next) {
     const salt = await bcrypt.genSalt(10);
     //hash the password using salt value
     this.password = await bcrypt.hash(this.password, salt);
-    //add time of update to the user's document
-    this.updated_at = Date.now();
+    // this.updated_at = Date.now();
 
+    next();
+  } catch (error) {
+    next(error)
+  }
+})
+
+
+//! This method will execute if Model.update() called and runValidators enabled.
+//mongoose middleware to tag timestamp of password update in DB
+userSchema.pre('update', async function (next) {
+  try {
+    if (!this.isModified('password')) return next();
+
+    //if password modified
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+
+    //write the time of update in updated_at
+    this.updated_at = Date.now();
     next();
   } catch (error) {
     next(error)

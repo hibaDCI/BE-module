@@ -111,10 +111,11 @@ export function protect() {
     }
 }
 ```
-
+---
 <br>
 
-## Authorization:
+## Authorization
+
 ### User Roles and Permissions
 Role-based access control (RBAC) is a widely used approach to controlling access to resources in applications. It involves assigning roles to users and determining what actions earch role is allowed to perform.
 
@@ -144,7 +145,9 @@ After defining the middleware, you can apply it to the routes that required role
 
 ```js
 router.route('/products')
-    .post(protect(), restrictTo(['admin']), addNewProduct);
+    .post(protect(), restrictTo('admin'), addNewProduct);
 ```
 
 In this example the middleware `restrictTo()` is applied on the route and ensuring that only users with `admin` role can access this resource.
+<!-- 
+ -->

@@ -37,11 +37,8 @@ export const signup = async (req, res, next) => {
     );
 
     //send response
-    res
-      .cookie("access_token", token, {
-        httpOnly: true,
-        expires: new Date(Date.now() + 3_600_000 * 24)
-      })
+    res.status(201)
+      .cookie('access_token', token, {httpOnly: true, expires: new Date(Date.now()+ 1000 * 60 *60 * 24)})
       .json({
         message: "Signup successfully!",
         newUser,
@@ -75,13 +72,17 @@ export const signin = async (req, res, next) => {
     const token = await createToken({ userid: user._id, userrole: user.role }, process.env.JWT_SECRET);
 
     //4. if user found by email and password matched with hash value send response
-    res.status(200)
-      .cookie('access_token', token, {httpOnly: true, expires: new Date(Date.now() + 3_600_000 * 24)})
+    res
+      .status(200)
+      .cookie("access_token", token, {
+        httpOnly: true,
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
+      })
       .json({
-      message: "Congrats! You logged in successfully!",
-      user,
-      token
-    });
+        message: "Congrats! You logged in successfully!",
+        user,
+        token,
+      });
   } catch (error) {
     next(error);
   }

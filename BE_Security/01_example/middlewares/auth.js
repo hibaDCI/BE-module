@@ -15,19 +15,17 @@ export const protect = function () {
         authHeader.startsWith("Bearer") &&
         authHeader.split(" ")[1];
 
-      
-      //get the token from cookies
-      token = req.cookies.access_token
-      console.log('******\n token from cookie:\n', token,'\n*****');
+      //get token from the cookie
+      token = req.cookies.access_token;
+
       if (!token) {
-        return createError(401, "Token Not Found!");
+        throw createError(401, "Token Not Found!");
       }
 
       /* ----------------------- verify the token ----------------------- */
       const decoded = await verifyToken(token, process.env.JWT_SECRET);
-      req.jwt = decoded;
       console.log("decoded:", decoded);
-
+      
       /* ----------- The user deleted after issuing the token ----------- */
       const user = await User.findById(decoded.userid);
       if (!user) {
@@ -38,15 +36,13 @@ export const protect = function () {
       }
 
       /* ----------- password updated after issuing the token ----------- */
-      let update_in_ms = parseInt(user.updated_at.getTime() / 1000);
-      console.log("issue:", decoded.iat, "update:", update_in_ms);
-      if (decoded.iat < update_in_ms) {
-        throw createError(
-          401,
-          "Password updated recently. Please sign in again!"
-        );
+      let update_in_sec = user.updated_at && parseInt(user.updated_at.getTime() / 1000);
+      
+      if (decoded.iat < update_in_sec) {
+        throw createError(401, 'Password updated recently, please signin again!')
       }
 
+      req.jwt = decoded;
       next();
     } catch (error) {
       next(error);
@@ -56,7 +52,7 @@ export const protect = function () {
 
 
 //role-based access control
-export const restrictTo = (...roles) => {
+export const restrictTo = (...roles) => { // ['admin', 'supply']
   return (req, res, next) => {
     try {
       //check if allowed roles includes role of my user

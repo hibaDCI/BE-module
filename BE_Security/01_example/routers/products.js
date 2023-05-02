@@ -7,11 +7,11 @@ const router = express.Router();
 
 router.route('/')
     .get(getProductList)
-    .post(protect(), restrictTo('user','admin'), validate(productValidations), addNewProduct);
+    .post(protect(), restrictTo('admin', 'supply'), validate(productValidations), addNewProduct);
 
 router.route('/:pid')
-    .put(updateProduct)
-    .delete(deleteProduct)
+    .put(protect(), restrictTo('admin'), updateProduct)
+    .delete(protect(), restrictTo('admin'), deleteProduct)
 
 
 export default router;

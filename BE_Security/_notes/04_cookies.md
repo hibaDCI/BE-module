@@ -1,4 +1,3 @@
-
 # Cookies 
 
 ## State and the server - Stateless HTTP
@@ -18,8 +17,8 @@ Cookies can be used to save state across requests. For example, a `user's login 
 ![Cookie Diagram](./_images/cookies.png)
 
 ### Setting cookies
-Cookies can be set in the server response using the `res.cookie()` method. This method takes two parameters: 
-- The name of the cookie and t
+Cookies can be set in the server response using the `res.cookie()` method. This method takes three parameters: 
+- The name of the cookie
 - The value of the cookie.
 - The options parameter
 
@@ -34,7 +33,7 @@ To read cookies sent from the client, the `cookie-parser` middleware can be used
 
 ```javascript
 //in server.js file
-const cookieParser = require('cookie-parser');
+import cookieParser from 'cookie-parser';
 app.use(cookieParser());
 ```
 
@@ -53,4 +52,5 @@ app.get('/', (req, res) => {
 ### Cookie pitfalls: memory limit, security vulnerabilities
 While cookies are a useful tool for maintaining state, there are some potential issues to keep in mind. One issue is the memory limit of cookies. Each cookie can store only a limited amount of data, typically around `4KB`. 
 
-Another issue is that cookies can be vulnerable to security attacks, such as cross-site scripting (XSS) and cross-site request forgery (CSRF). `Care should be taken to ensure that cookies are used securely to avoid such vulnerabilities`.
+Another issue is that cookies can be vulnerable to security attacks, such as cross-site scripting (XSS) and cross-site request forgery (CSRF). `Care should be taken to ensure that cookies are used securely to avoid such vulnerabilities`. 
+
