@@ -31,14 +31,22 @@ export const signup = async (req, res, next) => {
     newUser.password = undefined;
 
     //create JWT
-    const token = await createToken({ userid: newUser._id });
+    const token = await createToken(
+      { userid: newUser._id, userrole: newUser.role },
+      process.env.JWT_SECRET
+    );
 
     //send response
-    res.status(201).json({
-      message: "Signup successfully!",
-      newUser,
-      token
-    });
+    res
+      .cookie("access_token", token, {
+        httpOnly: true,
+        expires: new Date(Date.now() + 3_600_000 * 24)
+      })
+      .json({
+        message: "Signup successfully!",
+        newUser,
+        token,
+      });
   } catch (error) {
     next(error);
   }
@@ -46,6 +54,7 @@ export const signup = async (req, res, next) => {
 
 // POST /users/login
 export const signin = async (req, res, next) => {
+  console.log('signin controller');
   try {
     const { email, password } = req.body;
 
@@ -54,6 +63,7 @@ export const signin = async (req, res, next) => {
 
     //2 compare password and hash value
     const isMatch = await user.authenticate(password);
+
     //3. send error while email or password is wrong
     if (!user || !isMatch) {
       throw createError(401, "Invalid Credentials!");
@@ -62,10 +72,12 @@ export const signin = async (req, res, next) => {
     user.password = undefined;
 
     //create JWT
-    const token = await createToken({ userid: user._id });
+    const token = await createToken({ userid: user._id, userrole: user.role }, process.env.JWT_SECRET);
 
     //4. if user found by email and password matched with hash value send response
-    res.status(200).json({
+    res.status(200)
+      .cookie('access_token', token, {httpOnly: true, expires: new Date(Date.now() + 3_600_000 * 24)})
+      .json({
       message: "Congrats! You logged in successfully!",
       user,
       token

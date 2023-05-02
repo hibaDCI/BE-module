@@ -2,11 +2,13 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 import { connectToDB } from './utils/db.js';
 import { genericErrHandler, noRoute } from './middlewares/err.handler.js';
 import userRouter from './routers/users.js';
 import productRouter from './routers/products.js';
 import cartRouter from './routers/users.js';
+
 
 //set environment variables
 process.NODE_ENV === 'production'
@@ -22,6 +24,7 @@ connectToDB();
 
 
 //apply core middlewares
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());

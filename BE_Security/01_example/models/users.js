@@ -46,6 +46,10 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Address",
     required: [true, "`Address` field is required!"],
+  }, 
+
+  updated_at: {
+    type: Date
   }
 });
 
@@ -60,6 +64,8 @@ userSchema.pre('save', async function (next) {
     const salt = await bcrypt.genSalt(10);
     //hash the password using salt value
     this.password = await bcrypt.hash(this.password, salt);
+    //add time of update to the user's document
+    this.updated_at = Date.now();
 
     next();
   } catch (error) {

@@ -72,8 +72,8 @@ To validate the JWT on every request, we can create a `custom middleware functio
 
 ```js
 import { verifyToken } from './utils/jwt.js'
-
-export function authToken() {
+//token verification
+export function protect() {
 
     return async (req, res, next) => {
         try {
@@ -86,9 +86,23 @@ export function authToken() {
             return createError(401, 'Token Not Found!');
         }
     
-        //verify token by using verifyToken function created above
+        /* ----------------------- verify token --------------------------- */
         const decoded = await verifyToken(token, process.env.JWT_SECRET);
         req.jwt = decoded;
+
+        /* ------------ The user deleted after issue the token ------------ */
+        const user = await User.findById(decoded.userid);
+        if (!user) {
+            throw createError(401, 'The user belongs to given token is deleted recently!');
+        }
+
+        /* ------------- password updated after issuing token ------------- */
+        let update_in_ms = parseInt(user.updated_at.getTime()/1000)
+        if (decoded.iat < update_in_ms) {
+            throw createError(401, 'The user\'s password updated. Please sign in again!')
+        }
+
+
         return next();
         
         } catch (error) {
@@ -97,3 +111,40 @@ export function authToken() {
     }
 }
 ```
+
+<br>
+
+## Authorization:
+### User Roles and Permissions
+Role-based access control (RBAC) is a widely used approach to controlling access to resources in applications. It involves assigning roles to users and determining what actions earch role is allowed to perform.
+
+### Implement Middleware
+- Once you have defined your roles, you can implement middleware to check if `the user has the required role to access a particular resource`.
+
+- This middleware can be added to the `route handlers for protected routes`. 
+
+- The middleware can check the user's role agains the required role for the resource and either `grant or deny access`.
+
+    ```js
+    export const restrictTo = (...roles) => {
+        return (req, res, next) => {
+            //check if allowed roles includes role of my user
+            if (!roles.includes(req.jwt.userrole)) {
+                throw createError(403,"You do not have permission to perform this action!");
+            }
+
+            next();
+        };
+    };
+    ```
+
+
+### Apply Middleware to Routes
+After defining the middleware, you can apply it to the routes that required role-based access control. For example, to protect the `POST /products` route for admin users, you can apply `restrictTo()` middleware like this:
+
+```js
+router.route('/products')
+    .post(protect(), restrictTo(['admin']), addNewProduct);
+```
+
+In this example the middleware `restrictTo()` is applied on the route and ensuring that only users with `admin` role can access this resource.
