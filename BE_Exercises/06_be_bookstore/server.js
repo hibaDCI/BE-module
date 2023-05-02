@@ -4,8 +4,10 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import { genericErrHandler, noRoute } from "./middlewares/errors.js";
 import { connectToDB } from "./utils/db.js";
+
 import booksRouter from './routers/books.js';
 import reviewsRouter from './routers/reviews.js';
+import authorsRouter from './routers/authors.js';
 
 
 //set environment variables
@@ -30,6 +32,7 @@ app.use(morgan("tiny"));
 //apply routers
 app.use("/books", booksRouter);
 app.use("/reviews", reviewsRouter);
+app.use("/authors", authorsRouter);
 
 
 //error handler middlewares

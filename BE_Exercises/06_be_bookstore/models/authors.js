@@ -29,7 +29,7 @@ const authorSchema = new Schema({
     ],
     },
 
-}, {toJSON: {virtuals: true}, toObject: {virtuals: true}});
+});
 
 
 //virtual property for age out birthdate

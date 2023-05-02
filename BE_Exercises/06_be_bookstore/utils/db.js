@@ -8,7 +8,7 @@ export async function connectToDB() {
     console.log("DB Connection Established! 😃");
 
     //seed
-    await addSampleData(100);
+    // await addSampleData(100);
 
   } catch (error) {
     console.error(error.message);

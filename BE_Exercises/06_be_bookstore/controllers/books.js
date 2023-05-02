@@ -51,28 +51,11 @@ export const getBookWithReveiwsById = async (req, res, next) => {
 //add new book
 export const addNewBook = async (req, res, next) => {
   try {
-    //1. read book's data from req.body
-    const { title, authors, publish_date, genre, description, price } =
-      req.body;
+    // read book's data from req.body
+    const { title, authors, publish_date, genre, description, price }
+      = req.body;
 
-    //! since we add validation this part not needed
-    //2. check the required fields if exist
-    // if (!title || !authors.length || !genre || !price) {
-    //   throw createError(400, "Some of the required fields are missed!");
-    // }
-
-    //2.1 create authors documents
-    const authorDocs = [];
-    for (let author of authors) {
-      //check if author exist
-      let authorDoc = await Author.findOne({_id:author});
-      if (!authorDoc) {
-        authorDoc = await Author.create(author);
-      }
-      authorDocs.push(authorDoc._id);
-    }
-
-    //3. create the book using Book model
+    // create the book using Book model
     const newBook = await Book.create({
       title,
       authors: authorDocs,
@@ -82,7 +65,7 @@ export const addNewBook = async (req, res, next) => {
       price,
     });
 
-    //4. send response
+    // send response
     res.status(201).json({
       message: "New Book added!",
       newBook,
