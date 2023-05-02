@@ -3,6 +3,20 @@
 Please build a simple "bookstore" application using Node.js, Express, and Mongoose. The bookstore application should allow users to create books and reviews, as well as view, update, and delete them.
 
 ---
+# Part 5 - Exercise
+### Role-based Access Control + Cookies
+
+Task:
+1. Create a middleware function to enforce role-based access control for adding reviews and books.
+
+2. The middleware function should check the role of the user making the request and allow access to the corresponding routes based on user's role. 
+   1. Users with 'user' role should be allowed to add reviews
+   2. Users with 'admin role should be allowed to add books
+
+3. In addition to RBAC middleware, use cookies for access_token and read the cookie while get request includes 'access_token cookie' for token verification.
+
+<br>
+
 # Part 4 - Exercise
 ## JsonWebToken
 ### Task:
