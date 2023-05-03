@@ -4,6 +4,12 @@ import { Cart } from "../models/carts.js";
 import createError from "http-errors";
 import { createToken } from "../utils/jwt.js";
 
+let cookieOptions = {
+  httpOnly: true,
+  maxAge: 1000 * 60 * 60 * 48,
+  secure: false,
+};
+
 // POST /users/signup
 export const signup = async (req, res, next) => {
   try {
@@ -37,13 +43,10 @@ export const signup = async (req, res, next) => {
     );
 
     //set cookie and store jwt token inside it.
-    res.cookie("access_token", token, {
-      httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 48,
-      SameSite: `none`,
-      secure: false,
-      domain: "127.0.0.1",
-    });
+    if (process.NODE_ENV === "production") {
+      cookieOptions.secure = true;
+    }
+    res.cookie("access_token", token, cookieOptions);
 
     //send response
     res.status(201).json({
@@ -82,13 +85,9 @@ export const signin = async (req, res, next) => {
     );
 
     //set cookie and store jwt token inside it.
-    res.cookie("access_token", token, {
-      httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 48,
-      SameSite: `none`,
-      secure: false,
-      domain: "127.0.0.1",
-    });
+    
+    if(process.NODE_ENV === "production") {cookieOptions.secure = true}
+    res.cookie("access_token", token, cookieOptions);
 
     //create another cookie (to have multiple cookies - just for test)
     res.cookie("name", user.name);
