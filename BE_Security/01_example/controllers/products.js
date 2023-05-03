@@ -7,9 +7,12 @@ import { Cart } from "../models/carts.js";
 // GET /products/
 export const getProductList = async (req, res, next) => {
     try {
-        console.log('getProductlist controller');
-        res.status(200).json({
-            message: 'Product list'
+        const products = await Product.find();
+        res
+            .header('Access-Control-Allow-Credentials', true)
+            .status(200).json({
+            message: 'Product list',
+            products
         })
     } catch (error) {
         next(error)

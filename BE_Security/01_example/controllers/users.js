@@ -36,14 +36,21 @@ export const signup = async (req, res, next) => {
       process.env.JWT_SECRET
     );
 
+    //set cookie and store jwt token inside it.
+    res.cookie("access_token", token, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 48,
+      SameSite: `none`,
+      secure: false,
+      domain: "127.0.0.1",
+    });
+
     //send response
-    res.status(201)
-      .cookie('access_token', token, {httpOnly: true, expires: new Date(Date.now()+ 1000 * 60 *60 * 24)})
-      .json({
-        message: "Signup successfully!",
-        newUser,
-        token,
-      });
+    res.status(201).json({
+      message: "Signup successfully!",
+      newUser,
+      token,
+    });
   } catch (error) {
     next(error);
   }
@@ -51,7 +58,7 @@ export const signup = async (req, res, next) => {
 
 // POST /users/login
 export const signin = async (req, res, next) => {
-  console.log('signin controller');
+  console.log("signin controller");
   try {
     const { email, password } = req.body;
 
@@ -59,30 +66,38 @@ export const signin = async (req, res, next) => {
     const user = await User.findOne({ email });
 
     //2 compare password and hash value
-    const isMatch = await user.authenticate(password);
+    // const isMatch = await user.authenticate(password);
 
     //3. send error while email or password is wrong
-    if (!user || !isMatch) {
+    if (!user || !(await user.authenticate(password))) {
       throw createError(401, "Invalid Credentials!");
     }
     //remove password from user document before send to client
     user.password = undefined;
 
     //create JWT
-    const token = await createToken({ userid: user._id, userrole: user.role }, process.env.JWT_SECRET);
+    const token = await createToken(
+      { userid: user._id, userrole: user.role },
+      process.env.JWT_SECRET
+    );
+
+    //set cookie and store jwt token inside it.
+    res.cookie("access_token", token, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 48,
+      SameSite: `none`,
+      secure: false,
+      domain: "127.0.0.1",
+    });
+
+    //create another cookie (to have multiple cookies - just for test)
+    res.cookie("name", user.name);
 
     //4. if user found by email and password matched with hash value send response
-    res
-      .status(200)
-      .cookie("access_token", token, {
-        httpOnly: true,
-        expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
-      })
-      .json({
-        message: "Congrats! You logged in successfully!",
-        user,
-        token,
-      });
+    res.status(200).json({
+      message: "Congrats! You logged in successfully!",
+      user,
+    });
   } catch (error) {
     next(error);
   }
@@ -98,7 +113,7 @@ export const updateUser = async (req, res, next) => {
     const user = await User.findById(uid);
 
     if (!user) {
-      return createError.NotFound('User not found!');
+      return createError.NotFound("User not found!");
     }
 
     user.name = name || user.name;
@@ -108,8 +123,7 @@ export const updateUser = async (req, res, next) => {
 
     await user.save();
     user.password = undefined;
-    res.status(200).json({ message: 'User updated successfully!', user });
-
+    res.status(200).json({ message: "User updated successfully!", user });
   } catch (error) {
     next(error);
   }

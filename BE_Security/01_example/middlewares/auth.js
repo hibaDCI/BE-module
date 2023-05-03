@@ -5,7 +5,9 @@ import createError from "http-errors";
 
 //middleware function to protect routes by verifying tokens
 export const protect = function () {
+  console.log('protect middleware');
   return async (req, res, next) => {
+    console.log(req.cookies.access_token);
     let token;
     try {
       //get the token from Authorization header

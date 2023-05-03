@@ -6,7 +6,7 @@ import { protect, restrictTo } from "../middlewares/auth.js";
 const router = express.Router();
 
 router.route('/')
-    .get(getProductList)
+    .get( protect(), getProductList)
     .post(protect(), restrictTo('admin', 'supply'), validate(productValidations), addNewProduct);
 
 router.route('/:pid')
